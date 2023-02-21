@@ -2,11 +2,11 @@ export default function AboutUs() {
   return (
     <div>
       <p>
-        El proyecto consistirá en una página de compra-venta de ropa de deporte,
-        en la que los usuarios de la aplicación podrán subir los artículos que
-        deseen vender (estableciendo un precio y añadiendo información sobre el
-        producto, como fotos y una descripción de este) y los otros usuarios
-        podrán interactuar con el vendedor y comprar sus productos.
+        The project will consist of a page for buying and selling sportswear,
+        in which the users of the application will be able to upload the items that
+        they want to sell (setting a price and adding information about the
+        product, such as photos and a description of it) and other users 
+        will be able to interact with the seller and buy their products.
       </p>
     </div>
   );
