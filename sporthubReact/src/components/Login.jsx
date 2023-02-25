@@ -1,24 +1,28 @@
 import React from "react";
 
-export default function Login() {
+export default function Login(props) {
 
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [usernameInput, setUsernameInput] = React.useState("");
+  const [passwordInput, setPasswordInput] = React.useState("");
 
-  function loginEvent(event) {
+  const loginEvent = () => {
     // Here we will send the username and password to the backend
     // and check if the user is registered
     // If the user is registered, we will redirect to the home page
     // If the user is not registered, we will display an error message
 
-    alert("Username: " + username + " Password: " + password);
+    const user = {username: usernameInput, email: "takeFromDatabase"};
+    alert("hola buenas " + user.username + " " + user.email);
+    props.setUserLogged(user);
+
+    /* No se refleja el cambio en las demas páginas (app y nav)*/
   }
 
 
   return (
     <div className="card w-25">
 
-      <form onSubmit={loginEvent}>
+      <form onSubmit={() => loginEvent()}>
         <h3>Log in</h3>
 
         <div className="mb-3">
@@ -26,7 +30,7 @@ export default function Login() {
           <input
             type="username"
             className="form-control"
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setUsernameInput(event.target.value)}
           />
         </div>
 
@@ -35,7 +39,7 @@ export default function Login() {
           <input
             type="password"
             className="form-control"
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(event) => setPasswordInput(event.target.value)}
           />
         </div>
 

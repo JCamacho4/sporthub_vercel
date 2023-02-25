@@ -2,10 +2,10 @@ import React from "react";
 
 export default function SignUp() {
 
-  const [username, setUsername] = React.useState("");
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [usernameInput, setUsernameInput] = React.useState("");
+  const [nameInput, setNameInput] = React.useState("");
+  const [emailInput, setEmailInput] = React.useState("");
+  const [passwordInput, setPasswordInput] = React.useState("");
 
   function signUpEvent(event) {
     // Here we will send the username and password to the backend
@@ -13,7 +13,7 @@ export default function SignUp() {
     // If the user is registered, we will display an error message
     // If the user is not registered, we will register the user and redirect to the home page
 
-    alert("Username: " + username + " Name: " + name + " Email: " + email + " Password: " + password);
+    alert("Username: " + usernameInput + " Name: " + nameInput + " Email: " + emailInput + " Password: " + passwordInput);
   }
 
   return (
@@ -27,7 +27,7 @@ export default function SignUp() {
           <input
             type="text"
             className="form-control"
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setUsernameInput(event.target.value)}
           />
         </div>
 
@@ -36,7 +36,7 @@ export default function SignUp() {
           <input
             type="text"
             className="form-control"
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event) => setNameInput(event.target.value)}
           />
         </div>
 
@@ -45,7 +45,7 @@ export default function SignUp() {
           <input
             type="email"
             className="form-control"
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => setEmailInput(event.target.value)}
           />
         </div>
 
@@ -54,7 +54,7 @@ export default function SignUp() {
           <input
             type="password"
             className="form-control"
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(event) => setPasswordInput(event.target.value)}
           />
         </div>
 
