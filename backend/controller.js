@@ -1,0 +1,53 @@
+const sqlite3 = require("sqlite3").verbose();
+const express = require("express");
+const bodyParser = require('body-parser');
+const app = express();
+app.use(bodyParser.json());
+
+var port = 8080;
+
+const db = new sqlite3.Database("./database.db", (err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log("Connected to the SQlite database.");
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
+
+app.get("/users", (req, res) => {
+  const query = "SELECT * FROM users";
+
+  db.all(query, (err, rows) => {
+    if (err) {
+      res.send(err.message);
+    }
+    res.send(rows);
+  });
+});
+
+app.post("/newUser", (req, res) => {
+  const { username, password, name, email } = req.body;
+  const sql = `INSERT INTO users (username, password, name, email) VALUES (?, ?, ?, ?)`;
+  db.run(sql, [username, password, name, email], function (err) {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(200).send("User created successfully");
+    }
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}...`);
+});
+
+/* db.close((err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log("Close the database connection.");
+}); */
