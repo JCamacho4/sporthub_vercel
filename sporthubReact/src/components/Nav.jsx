@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { useEffect } from "react";
 
 export default function Nav(props) {
 
-
+  useEffect(() => {
+    console.log(props.username);
+  }, [props.username]);
 
   const loginAndRegister = () => {
     return (
@@ -19,10 +22,31 @@ export default function Nav(props) {
     );
   }
 
+  const helloUserAndLogout = () => {
+    return (
+      <>
+
+        <li className="nav-item">
+          <div class="card">
+            <div class="card-body p-1">
+              <h5 class="card-title mb-0">Hello {props.username}</h5>
+              <p class="card-text small-user-card-text">we can put here inbox/notifications/logout</p>
+            </div>
+          </div>
+        </li>
+
+
+        <li className="nav-item">
+          <Link className="nav-link" to={"/logout"}>Log out</Link>
+        </li>
+      </>
+    );
+  }
+
   return (
     <div>
 
-      <nav className="navbar navbar-expand-lg bg-body-tertiary p-0 mb-3">
+      <nav className="navbar navbar-expand-lg p-0 mb-2">
         <div className="container-fluid">
           <div className="navbar-brand" href="#">
             <img
@@ -38,7 +62,7 @@ export default function Nav(props) {
 
           <div className="collapse navbar-collapse" id="navbarText">
 
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav">
 
               {/* I don`t know how, but we might consider the navbar component being able to know the page which is located and add 'className="nav-link active" aria-current="page"'*/}
 
@@ -50,17 +74,15 @@ export default function Nav(props) {
                 <Link className="nav-link" to={"/about-us"}>About Us</Link>
               </li>
 
-              {
-                props.username ? ("Hola " + props.username + " buenas") : (loginAndRegister())
-                /* IDK if function must be called () => loginAndRegister(), in that case, there is an error */
-              }
-
-
             </ul>
 
-            <button onClick={() => alert(props.username)}>
+            <ul className="navbar-nav ms-auto d-flex">
 
-            </button>
+              {
+                props.username ? helloUserAndLogout() : loginAndRegister()
+                /* IDK if function must be called () => loginAndRegister(), in that case, there is an error */
+              }
+            </ul>
 
           </div>
         </div>

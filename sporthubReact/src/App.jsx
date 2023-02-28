@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import React from "react";
+import './assets/styles/style.css'
 
 function App() {
 
@@ -13,18 +14,13 @@ function App() {
 
   return (
     <div>
-      <button 
-        onClick={()=>alert(userLogged.username)}>
-      </button>
-
-
       <BrowserRouter>
         <Nav username={userLogged.username}></Nav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route setUserLogged={setUserLogged} path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<SignUp />}> </Route>
+          <Route path="/login" element={<Login userLogged={userLogged} setUserLogged={setUserLogged} />}></Route>
+          <Route path="/signup" element={<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />}> </Route>
         </Routes>
       </BrowserRouter>
     </div>
