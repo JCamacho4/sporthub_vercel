@@ -1,10 +1,11 @@
 const sqlite3 = require("sqlite3").verbose();
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
-
-var port = 8080;
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+const port = 8080;
 
 const db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
@@ -31,12 +32,19 @@ app.get("/users", (req, res) => {
 app.post("/newUser", (req, res) => {
   const { username, password, name, email } = req.body;
   const sql = `INSERT INTO users (username, password, name, email) VALUES (?, ?, ?, ?)`;
-  db.run(sql, [username, password, name, email], function (err) {
+  bcrypt.hash(password, saltRounds, function (err, hash) {
     if (err) {
       console.error(err.message);
       res.status(500).send("Internal server error");
     } else {
-      res.status(200).send("User created successfully");
+      db.run(sql, [username, hash, name, email], function (err) {
+        if (err) {
+          console.error(err.message);
+          res.status(500).send("Internal server error");
+        } else {
+          res.status(200).send("User created successfully");
+        }
+      });
     }
   });
 });
