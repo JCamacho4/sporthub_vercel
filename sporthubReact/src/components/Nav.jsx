@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export default function Nav() {
-
-	const [user,setUser] = useState(null);
-
-	useEffect(() => {
-		setUser(JSON.parse(localStorage.getItem("user")));
-	},[]);
-
+export default function Nav(props) {
 
   const loginAndRegister = () => {
     return (
@@ -24,29 +17,31 @@ export default function Nav() {
     );
   }
 
-	const logoutEvent = () => {
-		localStorage.removeItem("user")
-		setUser(null);
-	}
+  const helloUserAndLogout = () => {
+    return (
+      <>
 
-	const helloAndLogout = () => {
-		return (
-			<>
-				<li className="nav-item">
-					Hola @{user.username} buenas
-				</li>
+        <li className="nav-item">
+          <div className="card">
+            <div className="card-body p-1">
+              <h5 className="card-title mb-0">Hello {props.userLogged.username}</h5>
+              <p className="card-text small-user-card-text">we can put here inbox/notifications/logout</p>
+            </div>
+          </div>
+        </li>
 
-				<li className="nav-item">
-					<Link className="nav-link" onClick={() => logoutEvent()} to={"/"}>Logout</Link>
-				</li>
-			</>
-		)
-	}
+
+        <li className="nav-item">
+          <a className="nav-link" onClick={() => props.setUserLogged(null)} to={"/"}>Log out</a>
+        </li>
+      </>
+    );
+  }
 
   return (
     <div>
 
-      <nav className="navbar navbar-expand-lg bg-body-tertiary p-0 mb-3">
+      <nav className="navbar navbar-expand-lg p-0 mb-2">
         <div className="container-fluid">
           <div className="navbar-brand" href="#">
             <img
@@ -62,7 +57,7 @@ export default function Nav() {
 
           <div className="collapse navbar-collapse" id="navbarText">
 
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav">
 
               {/* I don`t know how, but we might consider the navbar component being able to know the page which is located and add 'className="nav-link active" aria-current="page"'*/}
 
@@ -74,17 +69,15 @@ export default function Nav() {
                 <Link className="nav-link" to={"/about-us"}>About Us</Link>
               </li>
 
-              {
-                user ? (helloAndLogout()) : (loginAndRegister())
-                /* IDK if function must be called () => loginAndRegister(), in that case, there is an error */
-              }
-
-
             </ul>
 
-            <button onClick={() => alert(JSON.stringify(user))}>
+            <ul className="navbar-nav ms-auto d-flex">
 
-            </button>
+              {
+                props.userLogged ? helloUserAndLogout() : loginAndRegister()
+                /* IDK if function must be called () => loginAndRegister(), in that case, there is an error */
+              }
+            </ul>
 
           </div>
         </div>
