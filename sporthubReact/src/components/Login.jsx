@@ -1,4 +1,5 @@
 import React from "react";
+import { redirect } from "react-router-dom";
 
 export default function Login(props) {
 
@@ -12,10 +13,8 @@ export default function Login(props) {
     // If the user is not registered, we will display an error message
 
     const user = {username: usernameInput, email: "takeFromDatabase"};
-    alert("hola buenas " + user.username + " " + user.email);
-    props.setUserLogged(user);
-
-    /* No se refleja el cambio en las demas páginas (app y nav)*/
+    localStorage.setItem("user", JSON.stringify(user));
+		return redirect("/");
   }
 
 

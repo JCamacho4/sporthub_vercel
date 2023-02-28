@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Nav(props) {
+export default function Nav() {
 
+	const [user,setUser] = useState(null);
+
+	useEffect(() => {
+		setUser(JSON.parse(localStorage.getItem("user")));
+	},[]);
 
 
   const loginAndRegister = () => {
@@ -18,6 +23,25 @@ export default function Nav(props) {
       </>
     );
   }
+
+	const logoutEvent = () => {
+		localStorage.removeItem("user")
+		setUser(null);
+	}
+
+	const helloAndLogout = () => {
+		return (
+			<>
+				<li className="nav-item">
+					Hola @{user.username} buenas
+				</li>
+
+				<li className="nav-item">
+					<Link className="nav-link" onClick={() => logoutEvent()} to={"/"}>Logout</Link>
+				</li>
+			</>
+		)
+	}
 
   return (
     <div>
@@ -51,14 +75,14 @@ export default function Nav(props) {
               </li>
 
               {
-                props.username ? ("Hola " + props.username + " buenas") : (loginAndRegister())
+                user ? (helloAndLogout()) : (loginAndRegister())
                 /* IDK if function must be called () => loginAndRegister(), in that case, there is an error */
               }
 
 
             </ul>
 
-            <button onClick={() => alert(props.username)}>
+            <button onClick={() => alert(JSON.stringify(user))}>
 
             </button>
 
