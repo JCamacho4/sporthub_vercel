@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 
 export default function Login(props) {
 
   const [usernameInput, setUsernameInput] = React.useState("");
   const [passwordInput, setPasswordInput] = React.useState("");
+	const navigate = useNavigate();
 
-  const loginEvent = () => {
+  const loginEvent = (e) => {
+    e.preventDefault();
     // Here we will send the username and password to the backend
     // and check if the user is registered
     // If the user is registered, we will redirect to the home page
     // If the user is not registered, we will display an error message
 
-    const user = {username: usernameInput, email: "takeFromDatabase"};
-    alert("hola buenas " + user.username + " " + user.email);
+    const user = {username: usernameInput, password: passwordInput};
     props.setUserLogged(user);
-
-    /* No se refleja el cambio en las demas páginas (app y nav)*/
+		navigate("/");
   }
+
+	useEffect(() => {
+		if(props.userLogged){
+			navigate("/");
+		}
+	},[]);
 
 
   return (
     <div className="card w-25">
 
-      <form onSubmit={() => loginEvent()}>
+      <form onSubmit={loginEvent}>
         <h3>Log in</h3>
 
         <div className="mb-3">
