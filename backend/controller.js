@@ -58,18 +58,22 @@ app.post("/login", (req, res) => {
       res.status(500).send("Internal server error");
     } else {
       user = rows[0];
-      bcrypt.compare(password, user.password, function (err, result) {
-        if (err) {
-          console.error(err.message);
-          res.status(500).send("Internal server error");
-        } else {
-          if (result) {
-            res.status(200).send(user);
+      if (user) {
+        bcrypt.compare(password, user.password, function (err, result) {
+          if (err) {
+            console.error(err.message);
+            res.status(500).send("Internal server error");
           } else {
-            res.status(403).send();
+            if (result) {
+              res.status(200).send(user);
+            } else {
+              res.status(403).send("Password not valid");
+            }
           }
-        }
-      });
+        });
+      } else {
+        res.status(403).send("Username not valid");
+      }
     }
   });
 });
