@@ -32,17 +32,37 @@ app.get("/users", (req, res) => {
 app.post("/newUser", (req, res) => {
   const { username, password, name, email } = req.body;
   const sql = `INSERT INTO users (username, password, name, email) VALUES (?, ?, ?, ?)`;
-  bcrypt.hash(password, saltRounds, function (err, hash) {
+  bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.error(err.message);
       res.status(500).send("Internal server error");
     } else {
-      db.run(sql, [username, hash, name, email], function (err) {
+      db.run(sql, [username, hash, name, email], (err) => {
         if (err) {
           console.error(err.message);
           res.status(500).send("Internal server error");
         } else {
           res.status(200).send("User created successfully");
+        }
+      });
+    }
+  });
+});
+
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  const sql = "SELECT * FROM users WHERE username = ?";
+  db.all(sql, [username], (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      bcrypt.compare(password, rows[0].password, function (err, result) {
+        if (err) {
+          console.error(err.message);
+          res.status(500).send("Internal server error");
+        } else {
+          res.status(result ? 200 : 403).send(result);
         }
       });
     }
