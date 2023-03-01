@@ -57,12 +57,17 @@ app.post("/login", (req, res) => {
       console.error(err.message);
       res.status(500).send("Internal server error");
     } else {
-      bcrypt.compare(password, rows[0].password, function (err, result) {
+      user = rows[0];
+      bcrypt.compare(password, user.password, function (err, result) {
         if (err) {
           console.error(err.message);
           res.status(500).send("Internal server error");
         } else {
-          res.status(result ? 200 : 403).send(result);
+          if (result) {
+            res.status(200).send(user);
+          } else {
+            res.status(403).send();
+          }
         }
       });
     }
