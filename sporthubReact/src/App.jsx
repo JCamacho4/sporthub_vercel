@@ -4,30 +4,49 @@ import Nav from "./components/Nav";
 import Login from "./components/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
-import React, { useEffect } from "react";
-import './assets/styles/style.css'
+import React, { useState, useEffect } from "react";
+import "./assets/styles/style.css";
+import axios from "axios";
 
 function App() {
+  const [userLogged, setUserLogged] = useState(null);
 
-  const [userLogged, setUserLogged] = React.useState(JSON.parse(localStorage.getItem("user")));
-
-	useEffect(() => {
-		if(userLogged && userLogged.username){
-			localStorage.setItem("user",JSON.stringify(userLogged));
-		}else{
-			localStorage.removeItem("user");
-		}
-	},[userLogged]);
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      axios
+        .post("http://localhost:8080/userByToken", {
+          token: localStorage.getItem("user"),
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            setUserLogged(response.data);
+          }
+        })
+        .catch((error) => {});
+    }
+  }, []);
 
   return (
     <div>
       <BrowserRouter>
-        <Nav userLogged={userLogged} setUserLogged={setUserLogged}></Nav>
+        <Nav userLogged={userLogged} setUserLogged={setUserLogged} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/login" element={<Login userLogged={userLogged} setUserLogged={setUserLogged} />}></Route>
-          <Route path="/signup" element={<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />}> </Route>
+          <Route
+            path="/login"
+            element={
+              <Login userLogged={userLogged} setUserLogged={setUserLogged} />
+            }
+          ></Route>
+          <Route
+            path="/signup"
+            element={
+              <SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
+            }
+          >
+            {" "}
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
