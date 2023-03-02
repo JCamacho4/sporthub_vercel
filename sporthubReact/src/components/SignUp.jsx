@@ -1,20 +1,53 @@
-import React from "react";
+import React, {useEffect} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp(props) {
 
   const [usernameInput, setUsernameInput] = React.useState("");
   const [nameInput, setNameInput] = React.useState("");
   const [emailInput, setEmailInput] = React.useState("");
   const [passwordInput, setPasswordInput] = React.useState("");
+  const navigate = useNavigate();
 
-  function signUpEvent(event) {
+  const signUpEvent = e => {
+    e.preventDefault();
     // Here we will send the username and password to the backend
     // and check if the user is registered
     // If the user is registered, we will display an error message
     // If the user is not registered, we will register the user and redirect to the home page
 
-    alert("Username: " + usernameInput + " Name: " + nameInput + " Email: " + emailInput + " Password: " + passwordInput);
+
+    const user = {username: usernameInput, password: passwordInput, name:nameInput, email:emailInput};
+
+    axios.post("http://localhost:8080/newUser/", {
+      username: usernameInput,
+      password: passwordInput,
+      name: nameInput,
+      email: emailInput
+    })
+    .then(response => {
+        alert("User has been created correctly, you are logged in now.");
+        props.setUserLogged(user);
+        navigate("/");
+    })
+    .catch(error => {
+      if(error.response.status === 400){
+        alert("The username is already in use, please pick a new one.");
+      }else{
+        alert("There was a problem when creating the new user.");
+        window.location.reload(false);
+      }
+    })
+
+    
   }
+
+  useEffect(() => {
+		if(props.userLogged){
+			navigate("/");
+		}
+	},[]);
 
   return (
     <div className="card w-25">

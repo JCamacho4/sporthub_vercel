@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 
@@ -16,8 +17,20 @@ export default function Login(props) {
     // If the user is not registered, we will display an error message
 
     const user = {username: usernameInput, password: passwordInput};
-    props.setUserLogged(user);
-		navigate("/");
+
+    axios.post("http://localhost:8080/login/", {
+      username: user.username,
+      password: user.password
+    })
+    .then(response => {
+      props.setUserLogged(user);
+      navigate("/");
+    })
+    .catch(error => {
+      alert("The username or password were incorrect.");
+      window.location.reload(false);
+    })
+
   }
 
 	useEffect(() => {

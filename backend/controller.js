@@ -6,6 +6,8 @@ app.use(bodyParser.json());
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const port = 8080;
+const cors = require("cors");
+app.use(cors());
 
 const db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
@@ -37,14 +39,26 @@ app.post("/newUser", (req, res) => {
       console.error(err.message);
       res.status(500).send("Internal server error");
     } else {
-      db.run(sql, [username, hash, name, email], (err) => {
-        if (err) {
+      db.get("SELECT * FROM users WHERE username = ?", [username], (err, row) => {
+        if(err){
           console.error(err.message);
           res.status(500).send("Internal server error");
-        } else {
-          res.status(200).send("User created successfully");
+        }else if(row){
+          res.status(400).send("The username was already inserted in the database");
+        }else{
+          db.run(sql, [username, hash, name, email], (err) => {
+            if (err) {
+              if(err.message.includes('UNIQUE constraint failed')){
+                res.status(400).send("Username already exists");
+              }
+              console.error(err.message);
+              res.status(500).send("Internal server error");
+            } else {
+              res.status(200).send("User created successfully");
+            }
+          });
         }
-      });
+      })
     }
   });
 });
