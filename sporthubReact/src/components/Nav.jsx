@@ -41,7 +41,7 @@ export default function Nav({ userLogged, setUserLogged }) {
               setUserLogged(null);
               localStorage.removeItem("user");
             }}
-            to={"/"}
+            href="/"
           >
             Log out
           </a>
