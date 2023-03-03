@@ -32,7 +32,7 @@ export default function Nav(props) {
 
 
         <li className="nav-item">
-          <a className="nav-link" onClick={() => props.setUserLogged(null)} to={"/"}>Log out</a>
+          <a className="nav-link" onClick={() => props.setUserLogged(null)} href="/" >Log out</a>
         </li>
       </>
     );
