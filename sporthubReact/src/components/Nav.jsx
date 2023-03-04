@@ -7,13 +7,13 @@ export default function Nav({ userLogged, setUserLogged }) {
       <>
         <li className="nav-item">
           <Link className="nav-link" to={"/login"}>
-            Login
+            <button className="container rounded-pill bg-warning border-0">Login</button>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link className="nav-link" to={"/signup"}>
-            Sign up
+            <button className="container rounded-pill bg-warning border-0">Sign Up</button>
           </Link>
         </li>
       </>
@@ -63,7 +63,7 @@ export default function Nav({ userLogged, setUserLogged }) {
           </div>
 
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarText"
