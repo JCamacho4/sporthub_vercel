@@ -41,6 +41,56 @@ export default function Login(props) {
 
 
   return (
+    <body>
+      <section>
+        <div class="form-box">
+          <div class="form-value">
+            <form onSubmit={loginEvent}>
+              <h2>Login</h2>
+              <div class="inputbox">
+              <ion-icon name="person-outline"></ion-icon>
+                <input
+                  type="username"
+                  className="form-control"
+                  onChange={(event) => setUsernameInput(event.target.value)}
+                />
+                <label>Username</label>
+              </div>  
+              
+              <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input
+                  type="password"
+                  className="form-control"
+                  onChange={(event) => setPasswordInput(event.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button id="login"
+                type="login" 
+                className="btn btn-primary mb-2"
+              >
+                Log in
+              </button>
+              <div class="register">
+                <label for="">Not registered already? <a href="/signup">Register here</a></label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </body>
+
+
+
+
+
+
+
+
+
+
+    /*
     <div className="card w-25">
 
       <form onSubmit={loginEvent}>
@@ -73,12 +123,10 @@ export default function Login(props) {
           </button>
         </div>
 
-        <p className="forgot-password text-right">
-          Not registered already? <a href="/signup">Register here!</a>
-        </p>
+        
 
       </form>
 
-    </div>
+    </div>*/
   );
 }
