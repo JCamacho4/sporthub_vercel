@@ -77,51 +77,5 @@ export default function Login({ userLogged, setUserLogged }) {
         </div>
       </section>
     </body>
-
-
-
-
-
-
-
-
-
-
-    /*
-    <div className="card w-25">
-      <form onSubmit={loginEvent}>
-        <h3>Log in</h3>
-
-        <div className="mb-3">
-          <label>Username</label>
-          <input
-            type="username"
-            className="form-control"
-            onChange={(event) => setUsernameInput(event.target.value)}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            onChange={(event) => setPasswordInput(event.target.value)}
-          />
-        </div>
-
-        <div>
-          <button type="login" className="btn btn-primary mb-2">
-            Log in
-          </button>
-        </div>
-
-        <p className="forgot-password text-right">
-          Not registered already? <a href="/signup">Register here!</a>
-        </p>
-
-      </form>
-
-    </div>
   );
 }
