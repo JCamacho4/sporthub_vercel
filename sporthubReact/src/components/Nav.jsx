@@ -43,7 +43,7 @@ export default function Nav({ userLogged, setUserLogged }) {
             }}
             href="/"
           >
-            Log out
+            <button className="container rounded-pill bg-warning border-0">Log Out</button>
           </a>
         </li>
       </>
