@@ -46,9 +46,14 @@ h2{
     transition: 1s; 
 }
 
-input:focus ~ label,
-input:hover ~ label{
+input#username:focus ~ label,
+input#username:hover ~ label{
     left: 200px;
+}
+
+input#password:focus ~ label,
+input#password:hover ~ label{
+    left: 205px;
 }
 
 input:focus ~ label{
