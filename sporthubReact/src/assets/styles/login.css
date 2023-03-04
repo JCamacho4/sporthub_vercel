@@ -42,12 +42,17 @@ h2{
     transform: translateY(-50%);
     font-size: 1em;
     pointer-events: none;
+    color: transparent;
     transition: 1s; 
 }
 
 input:focus ~ label,
-input:valid ~ label{
+input:hover ~ label{
     left: 200px;
+}
+
+input:focus ~ label{
+    color: black;
 }
 
 .inputbox input{
