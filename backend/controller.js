@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
+/**
+ * API USUARIOS
+ */
+
 app.get("/users", (req, res) => {
   const query = "SELECT * FROM users";
 
@@ -116,13 +120,40 @@ app.post("/userByToken", (req, res) => {
   }
 });
 
+
+
+/**
+ * API PRODUCTOS
+*/
+
+app.get("/products", (req, res) => {
+  const query = "SELECT p.*, u.username AS seller_username, u.name AS seller_name, u.email AS seller_email FROM products p JOIN users u ON p.seller = u.id";
+
+  db.all(query, (err, rows) => {
+    if (err) {
+      res.send(err.message);
+    }
+    res.send(rows);
+  });
+});
+
+app.post("/newProduct", (req, res) => {
+  const { name, description, image, price, seller } = req.body;
+  const sql = `INSERT INTO products (name, description, image, price, seller) VALUES (?, ?, ?, ?, ?)`;
+  db.run(sql, [name, description, image, price, seller], (err) => {
+    if (err) {
+      if (err.message.includes("UNIQUE constraint failed")) {
+        res.status(400).send("Product already exists");
+      }
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(200).send();
+    }
+  });
+})
+
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
-
-/* db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log("Close the database connection.");
-}); */
