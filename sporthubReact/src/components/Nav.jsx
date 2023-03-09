@@ -8,13 +8,13 @@ export default function Nav({ userLogged, setUserLogged }) {
       <>
         <li className="nav-item">
           <Link className="nav-link" to={"/login"}>
-            <button className="container rounded-pill bg-warning border-0">Login</button>
+            <button className="button2">Login</button>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link className="nav-link" to={"/signup"}>
-            <button className="container rounded-pill bg-warning border-0">Sign Up</button>
+            <button className="button2">Sign Up</button>
           </Link>
         </li>
       </>
