@@ -46,56 +46,60 @@ export default function SignUp({ userLogged, setUserLogged }) {
   }, []);
 
   return (
-    <div className="card w-25">
-      <form onSubmit={signUpEvent}>
-        <h3>Sign Up</h3>
+    <section>
+      <div className="form-box" id="signup">
+        <div className="form-value">
+          <form onSubmit={signUpEvent}>
+            <h2>Sign Up</h2>
 
-        <div className="mb-3">
-          <label>Username</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(event) => setUsernameInput(event.target.value)}
-          />
+            <div className="inputbox">
+              <ion-icon name="person-outline"></ion-icon>
+              <input id="username"
+                type="username"
+                className="form-control"
+                onChange={(event) => setUsernameInput(event.target.value)}
+              />
+              <label>Username</label>
+            </div>  
+
+            <div className="inputbox">
+              <ion-icon name="id-card-outline"></ion-icon>
+              <input id="name"
+                type="text"
+                className="form-control"
+                onChange={(event) => setNameInput(event.target.value)}
+              />
+              <label>Name</label>
+            </div>
+
+            <div className="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input id="email"
+                type="email"
+                className="form-control"
+                onChange={(event) => setEmailInput(event.target.value)}
+              />
+              <label>Email</label>
+            </div>
+              
+            <div className="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input id="password"
+                type="password"
+                className="form-control"
+                onChange={(event) => setPasswordInput(event.target.value)}
+              />
+              <label>Password</label>
+            </div>
+            <button id="button"
+              type="submit" 
+              className="btn btn-primary mb-2"
+            >
+              Sign Up
+            </button>
+          </form>
         </div>
-
-        <div className="mb-3">
-          <label>Name</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(event) => setNameInput(event.target.value)}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            onChange={(event) => setEmailInput(event.target.value)}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            onChange={(event) => setPasswordInput(event.target.value)}
-          />
-        </div>
-
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary mb-2">
-            Sign Up
-          </button>
-        </div>
-
-        <p className="forgot-password text-right">
-          Already registered? <a href="/login">Log in here!</a>
-        </p>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 }
