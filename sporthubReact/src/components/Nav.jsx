@@ -28,7 +28,7 @@ export default function Nav({ userLogged, setUserLogged }) {
           <div className="dropdown">
             <button className="button" id="menuBtn"><ion-icon name="person-circle-outline" id="icono"></ion-icon>{userLogged.username}</button>
               <div className="dropdown-content">
-                <Link to={`/profile/${userLogged.username}`}>Mi perfil</Link>
+                <Link to={`/profile/${userLogged.username}`}>My Perfil</Link>
                 <Link to="/pedidos/">Mis pedidos</Link>
                 <a className="nav-link"
                   onClick={() => {

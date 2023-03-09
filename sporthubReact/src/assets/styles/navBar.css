@@ -36,10 +36,9 @@
     cursor: pointer;
     top: 2px;
     left: 15px;
-}
+  }
 
 .dropdown-content {
-  margin-top: 5px;
   display: none;
   background-color: #fff;
   min-width: 160px;
@@ -47,7 +46,7 @@
 
 .dropdown-content a {
   display: block;
-  padding: 10px ;
+  padding: 10px;
   height: 40px;
   width: 120px;
   text-decoration: none;
