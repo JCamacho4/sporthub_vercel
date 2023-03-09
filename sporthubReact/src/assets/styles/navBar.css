@@ -1,8 +1,8 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    width: 150%;
-    height: 35px;
+    width: 100px;
+    height: 40px;
     border-radius: 40px;
     background: #ffa500;
     color: black;
@@ -16,7 +16,8 @@
     display: none;
     position: absolute;
     top: 40px;
-    background: transparent;
+    height: 35px;
+    background: #fff;
   }
   
   #menuBtn:focus + .dropdown-content,
@@ -33,10 +34,12 @@
     color: #000;
     font-size: 16px;
     cursor: pointer;
-    left: 14px;
+    top: 2px;
+    left: 15px;
 }
 
 .dropdown-content {
+  margin-top: 5px;
   display: none;
   background-color: #fff;
   min-width: 160px;
@@ -45,9 +48,11 @@
 .dropdown-content a {
   display: block;
   padding: 10px ;
+  height: 40px;
   width: 120px;
   text-decoration: none;
   color: #000000;
+  margin-top: 5px;
 }
 
 .dropdown-content a:hover {
