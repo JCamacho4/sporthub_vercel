@@ -1,22 +1,20 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import "../assets/styles/navBar.css"
+import "../assets/styles/navBar.css";  
 
 export default function Nav({ userLogged, setUserLogged }) {
   const loginAndRegister = () => {
     return (
       <>
         <li className="nav-item">
-          <div className="container mr-2">
-            <Link className="nav-link" to={"/login"}>
-              <button className="button">Login</button>
-            </Link>
-          </div>
+          <Link className="nav-link" to={"/login"}>
+            <button className="container rounded-pill bg-warning border-0">Login</button>
+          </Link>
         </li>
 
         <li className="nav-item">
           <Link className="nav-link" to={"/signup"}>
-            <button className="button">Sign Up</button>
+            <button className="container rounded-pill bg-warning border-0">Sign Up</button>
           </Link>
         </li>
       </>
@@ -27,14 +25,16 @@ export default function Nav({ userLogged, setUserLogged }) {
     return (
       <>
         <li className="nav-item">
-          <div className="card">
-            <div className="card-body p-1">
-              <h5 className="card-title mb-0">Hello {userLogged.username}</h5>
-              <p className="card-text small-user-card-text">
-                we can put here inbox/notifications/logout
-              </p>
-            </div>
-          </div>
+        <div className="dropdown">
+  <button id="menuBtn">Bienvenido</button>
+  <div className="dropdown-content">
+    <a href="#">Mi perfil</a>
+    <a href="#">Mis pedidos</a>
+    <a href="#">Log out</a>
+  </div>
+</div>
+
+
         </li>
 
         <li className="nav-item">
