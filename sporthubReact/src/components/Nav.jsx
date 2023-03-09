@@ -25,29 +25,19 @@ export default function Nav({ userLogged, setUserLogged }) {
     return (
       <>
         <li className="nav-item">
-        <div className="dropdown">
-  <button id="menuBtn">Bienvenido</button>
-  <div className="dropdown-content">
-    <a href="#">Mi perfil</a>
-    <a href="#">Mis pedidos</a>
-    <a href="#">Log out</a>
-  </div>
-</div>
-
-
-        </li>
-
-        <li className="nav-item">
-          <a
-            className="nav-link"
-            onClick={() => {
-              setUserLogged(null);
-              localStorage.removeItem("user");
-            }}
-            href="/"
-          >
-            <button className="container rounded-pill bg-warning border-0">Log Out</button>
-          </a>
+          <div className="dropdown">
+            <button id="menuBtn">Bienvenido {userLogged.username}</button>
+              <div className="dropdown-content">
+                <a href="/profile/">Mi perfil</a>
+                <a href="/pedidos/">Mis pedidos</a>
+                <a className="nav-link"
+                        onClick={() => {
+                          setUserLogged(null);
+                          localStorage.removeItem("user");
+                        }}
+                        href="/">Log out</a>
+              </div>
+          </div>
         </li>
       </>
     );
