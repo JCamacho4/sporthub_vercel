@@ -28,14 +28,14 @@ export default function Nav({ userLogged, setUserLogged }) {
           <div className="dropdown">
             <button id="menuBtn">Bienvenido {userLogged.username}</button>
               <div className="dropdown-content">
-                <a href="/profile/">Mi perfil</a>
-                <a href="/pedidos/">Mis pedidos</a>
+                <Link to={`/profile/${userLogged.username}`}>Mi perfil</Link>
+                <Link to="/pedidos/">Mis pedidos</Link>
                 <a className="nav-link"
-                        onClick={() => {
-                          setUserLogged(null);
-                          localStorage.removeItem("user");
-                        }}
-                        href="/">Log out</a>
+                  onClick={() => {
+                    setUserLogged(null);
+                    localStorage.removeItem("user");
+                    history.push("/");
+                  }}>Log out</a>
               </div>
           </div>
         </li>
