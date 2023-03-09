@@ -26,7 +26,7 @@ export default function Nav({ userLogged, setUserLogged }) {
       <>
         <li className="nav-item">
           <div className="dropdown">
-            <button id="menuBtn">Bienvenido {userLogged.username}</button>
+            <button className="button" id="menuBtn"><ion-icon name="person-circle-outline" id="icono"></ion-icon>{userLogged.username}</button>
               <div className="dropdown-content">
                 <a href="/profile/">Mi perfil</a>
                 <a href="/pedidos/">Mis pedidos</a>
