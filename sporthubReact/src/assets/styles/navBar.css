@@ -1,0 +1,12 @@
+button.button{
+    width: 145%;
+    height: 25px;
+    border-radius: 15px;
+    background: orange;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
