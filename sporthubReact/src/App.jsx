@@ -2,6 +2,7 @@ import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import Nav from "./components/Nav";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import React, { useState, useEffect } from "react";
@@ -47,6 +48,9 @@ function App() {
           >
             {" "}
           </Route>
+          <Route 
+            path="/profile/:username" 
+            element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
         </Routes>
       </BrowserRouter>
     </div>
