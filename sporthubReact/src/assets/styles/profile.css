@@ -1,38 +1,106 @@
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.image img {
-    transition: all 0.5s
+section{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
-.image img {
-    transform: scale(1.5)
+.card{
+    width: 320px;
+    height: 340px;
+    border-radius: 20px;
+    border-color: #000;
+    position: relative;
+    top: -20%;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
 }
 
-.btn {
-    height: 160px;
-    width: 160px;
-    border-radius: 50%
+.card::before{
+    content: "";
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 96%;
+    height: 120px;
+    z-index: 1;
+    border-radius: 20px 20px 0 0;
+    background-color: #ffa500;
+    transform-origin: bottom;
+    transition: transform .4s;
+    
 }
 
-.name {
-    font-size: 22px;
-    font-weight: bold
+.card:hover::before{
+    transform: translateY(-5px) scaleY(1.2);
 }
 
-.idd {
-    font-size: 14px;
-    font-weight: 600
+.card .img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    z-index: 10;
+    transform: translateY(50px);
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: absolute;
+    left: 100px;
+    bottom: 65%;
+    background: #fff;  
 }
 
-.btn1 {
-    height: 40px;
-    width: 150px;
+.card .img img{
+    width: 120%;
+    height: 120%;
+    transform: translate(-8%,-8%);
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    transform: translateY(170px);
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    align-items: center;
+}
+
+.content p{
+    margin: 0 0;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.content .button{
+    width: 250px;
+    padding: 10px;
+    position: relative;
+    top: 65px;
+    border-radius: 20px;
+    outline: none;
     border: none;
-    background-color: #000;
-    color: #aeaeae;
-    font-size: 15px
+    transform: translateY(10px);
+    background: #ffa500;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
 }
+
+
+
+
+
 
