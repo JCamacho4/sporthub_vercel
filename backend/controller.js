@@ -1,4 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
+const multer = require("multer");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
@@ -10,6 +11,7 @@ const port = 8080;
 const cors = require("cors");
 require("dotenv").config();
 app.use(cors());
+const upload = multer({ dest: "uploads/" });
 
 const db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
@@ -39,7 +41,7 @@ app.get("/users", (req, res) => {
 
 app.post("/newUser", (req, res) => {
   const { username, password, name, email } = req.body;
-  const sql = `INSERT INTO users (username, password, name, email) VALUES (?, ?, ?, ?)`;
+  const sql = `INSERT INTO users (username, password, name, email, profileImage) VALUES (?, ?, ?, ?, ?)`;
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.error(err.message);
@@ -57,7 +59,7 @@ app.post("/newUser", (req, res) => {
               .status(400)
               .send("The username was already inserted in the database");
           } else {
-            db.run(sql, [username, hash, name, email], (err) => {
+            db.run(sql, [username, hash, name, email, null], (err) => {
               if (err) {
                 if (err.message.includes("UNIQUE constraint failed")) {
                   res.status(400).send("Username already exists");
@@ -120,14 +122,31 @@ app.post("/userByToken", (req, res) => {
   }
 });
 
-
+app.post("/setUserProfile", upload.single("image"), (req, res) => {
+  const imageBinaryData = req.file.buffer;
+  const { user } = req.body;
+  db.run(
+    "UPDATE users SET profileImage = ? WHERE id = ?",
+    [imageBinaryData, user],
+    (err) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).json({ message: "Error setting profile image." });
+      } else {
+        res.sendStatus(200);
+      }
+    }
+  );
+  db.close();
+});
 
 /**
  * API PRODUCTOS
-*/
+ */
 
 app.get("/products", (req, res) => {
-  const query = "SELECT p.*, u.username AS seller_username, u.name AS seller_name, u.email AS seller_email FROM products p JOIN users u ON p.seller = u.id";
+  const query =
+    "SELECT p.*, u.username AS seller_username, u.name AS seller_name, u.email AS seller_email FROM products p JOIN users u ON p.seller = u.id";
 
   db.all(query, (err, rows) => {
     if (err) {
@@ -151,8 +170,7 @@ app.post("/newProduct", (req, res) => {
       res.status(200).send();
     }
   });
-})
-
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
