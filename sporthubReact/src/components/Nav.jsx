@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import "../assets/styles/navBar.css"
 
 export default function Nav({ userLogged, setUserLogged }) {
   const loginAndRegister = () => {
     return (
       <>
         <li className="nav-item">
-          <Link className="nav-link" to={"/login"}>
-            <button className="container rounded-pill bg-warning border-0">Login</button>
-          </Link>
+          <div className="container mr-2">
+            <Link className="nav-link" to={"/login"}>
+              <button className="button">Login</button>
+            </Link>
+          </div>
         </li>
 
         <li className="nav-item">
           <Link className="nav-link" to={"/signup"}>
-            <button className="container rounded-pill bg-warning border-0">Sign Up</button>
+            <button className="button">Sign Up</button>
           </Link>
         </li>
       </>
