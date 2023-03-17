@@ -23,7 +23,7 @@ function App() {
             setUserLogged(response.data);
           }
         })
-        .catch((error) => {});
+        .catch((error) => { });
     }
   }, []);
 
@@ -48,8 +48,12 @@ function App() {
           >
             {" "}
           </Route>
-          <Route 
-            path="/profile/:username" 
+          <Route
+            path="/profile/:username"
+            element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
+
+          <Route
+            path="/categories/:category"
             element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
         </Routes>
       </BrowserRouter>

@@ -55,9 +55,8 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #000;
+  background-color: #ffa500;
   border-radius: 25px;
-  color: #fff;
 }
 
 ion-icon{
@@ -78,3 +77,9 @@ ion-icon{
   cursor: pointer;
   font-size: 1em;
 }
+
+/*
+:hover{
+    background-color: #ffa600ad;
+}
+*/

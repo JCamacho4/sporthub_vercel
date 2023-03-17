@@ -17,6 +17,8 @@ export default function Nav({ userLogged, setUserLogged }) {
             <button className="button2">Sign Up</button>
           </Link>
         </li>
+
+        
       </>
     );
   };
@@ -25,12 +27,12 @@ export default function Nav({ userLogged, setUserLogged }) {
     return (
       <>
         <li className="nav-item">
-          <div className="dropdown">
+          <div className="dropdown" > 
             <button className="button" id="menuBtn"><ion-icon name="person-circle-outline" id="icono"></ion-icon>{userLogged.username}</button>
               <div className="dropdown-content">
                 <Link to={`/profile/${userLogged.username}`}>My Perfil</Link>
                 <Link to="/pedidos/">Mis pedidos</Link>
-                <a className="nav-link"
+                <a 
                   onClick={() => {
                     setUserLogged(null);
                     localStorage.removeItem("user");
@@ -45,7 +47,7 @@ export default function Nav({ userLogged, setUserLogged }) {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg p-0 mb-2">
+      <nav className="navbar navbar-expand-lg p-0 mb-2 z-3">
         <div className="container-fluid">
           <div className="navbar-brand" href="#">
             <img
@@ -80,6 +82,12 @@ export default function Nav({ userLogged, setUserLogged }) {
               <li className="nav-item">
                 <Link className="nav-link" to={"/about-us"}>
                   About Us
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to={"/categories"}>
+                  Categories
                 </Link>
               </li>
             </ul>
