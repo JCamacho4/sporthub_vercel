@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import "../assets/styles/navBar.css";  
+import "../assets/styles/navBar.css";
 
 export default function Nav({ userLogged, setUserLogged }) {
   const loginAndRegister = () => {
@@ -18,7 +18,7 @@ export default function Nav({ userLogged, setUserLogged }) {
           </Link>
         </li>
 
-        
+
       </>
     );
   };
@@ -27,18 +27,21 @@ export default function Nav({ userLogged, setUserLogged }) {
     return (
       <>
         <li className="nav-item">
-          <div className="dropdown" > 
-            <button className="button" id="menuBtn"><ion-icon name="person-circle-outline" id="icono"></ion-icon>{userLogged.username}</button>
-              <div className="dropdown-content">
-                <Link to={`/profile/${userLogged.username}`}>My Perfil</Link>
-                <Link to="/pedidos/">Mis pedidos</Link>
-                <a 
-                  onClick={() => {
-                    setUserLogged(null);
-                    localStorage.removeItem("user");
-                    history.push("/");
-                  }}>Log out</a>
-              </div>
+          <div className="dropdown">
+            <button type="button" className="button" id="menuBtn" data-bs-toggle="dropdown">
+              <ion-icon name="person-circle-outline" id="icono"></ion-icon>{userLogged.username}
+            </button>
+            <ul className="dropdown-menu">
+              <li> <a className="dropdown-item" href={`/profile/${userLogged.username}`}>Profile</a> </li>
+              <li> <a className="dropdown-item" href="/wish-list/">Wish list</a> </li>
+              <li> <a className="dropdown-item" href="#"
+                onClick={() => {
+                  setUserLogged(null);
+                  localStorage.removeItem("user");
+                  history.push("/");
+                }}>Log out</a>
+              </li>
+            </ul>
           </div>
         </li>
       </>
