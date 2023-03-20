@@ -8,6 +8,7 @@ import SignUp from "./components/SignUp";
 import React, { useState, useEffect } from "react";
 import "./assets/styles/style.css";
 import axios from "axios";
+import Categories from "./components/Categories";
 
 function App() {
   const [userLogged, setUserLogged] = useState(null);
@@ -52,6 +53,9 @@ function App() {
             path="/profile/:username"
             element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
 
+					<Route
+						path="/categories"
+						element={<Categories />} />
           <Route
             path="/categories/:category"
             element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />

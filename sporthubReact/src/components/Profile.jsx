@@ -26,7 +26,7 @@ export default function Profile({ userLogged, setUserLogged }) {
                     <p><strong>@</strong>{username}</p>
                     <button className="button">Change Personal Info</button> 
                 </div>                 
-            </div>    
+            </div>  
         </section>
 
     );
