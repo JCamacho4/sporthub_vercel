@@ -8,11 +8,11 @@ export default function Home() {
 
         <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
           <div className="carousel-inner" id="imagesContainer">
-            <div className="carousel-item active" >
-              <img src="https://thumbs.dreamstime.com/b/sport-equipment-2-22802518.jpg" className="d-block w-100 h-100" />
-            </div>
-            <div className="carousel-item">
+            <div className="carousel-item active">
               <img src="https://www.hausdessports.ch/pictures/W1siZiIsIjIwMjEvMDgvMDMvNWx6bW1vdmZ1Ml9IZWFkZXJfSG9tZS5qcGciXSxbInAiLCJlbmNvZGUiLCJqcGVnIiwiLXF1YWxpdHkgODUiXV0/Header%20Home.jpeg?sha=9b9e941c8cc5becf" className="d-block w-100 h-100"/>
+            </div>
+            <div className="carousel-item" >
+              <img src="https://img2.storyblok.com/1800x743/filters:focal():format(png)/f/115220/2400x990/244feeeb75/fightcamp-ways-to-improve-your-reflexes-for-boxing.png" className="d-block w-100 h-100" />
             </div>
             <div className="carousel-item">
               <img src="https://spunout.ie/wp-content/uploads/elementor/thumbs/surfing-q0ubkc6jrqbfnadhc7p5r5sbms3ybsqbmctk2g2u2g.jpg" className="d-block w-100 h-100" />
