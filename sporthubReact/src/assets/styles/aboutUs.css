@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
-.about-us-header{
+
+.about-us-header {
     background-color: #ffa500;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #e3e3e3;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     text-align: center;
 }
 
-.sporthub-section{
+.sporthub-section {
     padding: 30px;
     border-radius: 5px;
     border: 1px solid #e3e3e3;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     margin: 20px;
     font-size: 18px;
 
@@ -21,21 +22,21 @@
     justify-content: center;
 }
 
-.project-div{
+.project-div {
     display: flex;
     padding: 10px;
 }
 
-.project-section{
+.project-section {
     padding: 30px;
     border-radius: 5px;
     border: 1px solid #e3e3e3;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     margin: 20px;
     justify-content: center;
 }
 
-ion-icon{
+ion-icon {
     color: black;
 }
 
@@ -46,11 +47,13 @@ a {
     text-decoration: none;
     color: #000;
     margin-top: 10px;
-  }
+}
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'PT Sans', sans-serif;
-} 
+}
 
 .about-img {
     width: 40%;
