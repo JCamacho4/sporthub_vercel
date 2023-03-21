@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "../assets/styles/profile.css"
-// import axios from "axios";
 
 export default function Profile({ userLogged, setUserLogged }) {
 

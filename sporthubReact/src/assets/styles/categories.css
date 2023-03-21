@@ -1,4 +1,4 @@
-.card {
+div .categoriesCard{
 	width: calc(100%/4 - 10px);
 	display: inline-flex;
 	margin: 5px;

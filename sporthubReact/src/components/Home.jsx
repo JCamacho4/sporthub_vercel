@@ -24,12 +24,10 @@ export default function Home() {
 
       <div className="p-3 mb-3 rounded bg-white">
         <h5 className="mb-3">Search what you want</h5>
-
           <div className="input-group mb-3">
             <input id="searchBar" type="text" className="form-control"/>
             <button id="searchButton" type="submit" className="btn btn-primary">Search</button>
           </div>
-
       </div>
 
     </div>
