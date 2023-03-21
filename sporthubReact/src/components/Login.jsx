@@ -39,7 +39,7 @@ export default function Login({ userLogged, setUserLogged }) {
   }, []);
 
   return (
-    <section>
+    <section id="loginSection">
       <div className="form-box">
         <div className="form-value">
           <form onSubmit={loginEvent}>

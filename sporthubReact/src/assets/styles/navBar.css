@@ -48,18 +48,10 @@ ion-icon {
   font-size: 1em;
 }
 
-#icono2 {
-  width: 20px;
-  margin-right: 5px;
-}
-
-#icono {
+#icono2, #icono {
   margin-left: 7px;
 }
 
-#dropdownIcon {
-  width: 50px;
-}
 
 #profile-dropdown {
   position: relative;
