@@ -1,0 +1,46 @@
+.about-us-header{
+    background-color: #ffa500;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    text-align: center;
+}
+
+.sporthub-section{
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    align-items: center;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.project-div{
+    display: flex;
+    padding: 10px;
+}
+
+.project-section{
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    margin: 20px;
+    justify-content: center;
+}
+
+ion-icon{
+    color: black;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    margin-top: 10px;
+  }

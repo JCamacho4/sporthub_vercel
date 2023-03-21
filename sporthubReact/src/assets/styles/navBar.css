@@ -1,33 +1,13 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 100px;
-  height: 40px;
-
   color: black;
-  border: none;
-  outline: none;
   cursor: pointer;
   font-size: 1em;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 40px;
-  height: 35px;
-  background: #fff;
-}
-
-#menuBtn:focus+.dropdown-content,
-
-.dropdown-item:hover {
-  display: block;
-}
-
 
 #menuBtn {
-  border-radius: 80px;
   background-color: #ffa500;
   position: relative;
   border: none;
@@ -37,20 +17,10 @@
   border-radius: 25px;
   text-align: center;
   display: inline-block;
-  line-height: 30px;
+  line-height: 50px;
   text-align: center;
-  width: 100px;
   height: 50px;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-  height: 40px;
-  width: 120px;
-  text-decoration: none;
-  color: #000000;
-  margin-top: 5px;
+  width: calc(100% + 20px);
 }
 
 .dropdown-menu a:hover {
@@ -78,6 +48,13 @@ ion-icon {
   font-size: 1em;
 }
 
-#dropdownIcon {
-  width: 50px;
+#icono2, #icono {
+  margin-left: 7px;
+}
+
+
+#profile-dropdown {
+  position: relative;
+  display: inline-block;
+  font-size: 30px;
 }

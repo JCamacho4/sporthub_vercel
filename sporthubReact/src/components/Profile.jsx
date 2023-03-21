@@ -14,7 +14,7 @@ export default function Profile({ userLogged, setUserLogged }) {
     }, []);
 
     return (
-        <section>
+        <section id="profileCard">
             <div className="card">
                 <div className="img">
                     <img src="https://telematicanet.ucol.mx/egresados/assets/images/la-imagen-del-usuario-con-el-fondo-negro-626x626.jpg" alt="error"/>
