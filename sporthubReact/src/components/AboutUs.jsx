@@ -8,6 +8,9 @@ export default function AboutUs() {
         <h2 className="about-us-header">
           What is SportHub?
         </h2>
+
+        <img className="about-img" src="https://user-images.githubusercontent.com/100539990/221368717-a32486ad-8628-4658-8354-b97b5eaa3a43.png" />
+
         <p>
           At SportHub, we believe that everyone should have access to quality sports products at <b>affordable prices</b>.
           That's why we are committed to providing a <b> user-friendly platform </b> that makes it easy for our customers to
@@ -24,6 +27,7 @@ export default function AboutUs() {
         <h2 className="about-us-header">
           Mission
         </h2>
+
         <p>
           At SportHub, our mission is to provide a seamless and <b>enjoyable shopping experience</b> for our users.
           Our goal is to create a platform that is <b>accessible to everyone</b>, regardless of their technical background.
@@ -67,7 +71,7 @@ export default function AboutUs() {
           <p>
             Together, we are committed to making SportHub the best possible platform for our users. We are excited to
             continue developing and improving our platform, and we hope that you will join us on this journey.
-            If you would like to see our code or contribute to our project, please visit our GitHub
+            If you would like to see our code or contribute to our project, please visit our GitHub.
           </p>
           <a href="https://github.com/4ntoniofr/sporthub">
             <ion-icon size="large" name="logo-github" />
