@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "../assets/styles/categories.css";
 
 export default function Categories() {
+	const navigate = useNavigate();
+
 	return (
 		<div>
 			<div className="card categoriesCard">
@@ -9,7 +12,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>All categories</h5>
-					<button className="button">Search All</button>
+					<button className="button" onClick={() => navigate("/search?c=all")}>Search All</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -18,7 +21,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Football</h5>
-					<button className="button">Search Football</button>
+					<button className="button" onClick={() => navigate("/search?c=football")}>Search Football</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -27,7 +30,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Basketball</h5>
-					<button className="button">Search Basketball</button>
+					<button className="button" onClick={() => navigate("/search?c=basketball")}>Search Basketball</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -36,7 +39,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Boxing</h5>
-					<button className="button">Search Boxing</button>
+					<button className="button" onClick={() => navigate("/search?c=boxing")}>Search Boxing</button>
 				</div>
 			</div>
 
@@ -46,7 +49,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Swimming</h5>
-					<button className="button">Search Swimming</button>
+					<button className="button" onClick={() => navigate("/search?c=swimming")}>Search Swimming</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -55,7 +58,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Track & Field</h5>
-					<button className="button">Search Track & Field</button>
+					<button className="button" onClick={() => navigate("/search?c=track")}>Search Track & Field</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -64,7 +67,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Tennis</h5>
-					<button className="button">Search Tennis</button>
+					<button className="button" onClick={() => navigate("/search?c=tennis")}>Search Tennis</button>
 				</div>
 			</div>
 			<div className="card categoriesCard">
@@ -73,7 +76,7 @@ export default function Categories() {
 				</div>
 				<div className="content">
 					<h5>Cycling</h5>
-					<button className="button">Search Cycling</button>
+					<button className="button" onClick={() => navigate("/search?c=cycling")}>Search Cycling</button>
 				</div>
 			</div>
 		</div>
