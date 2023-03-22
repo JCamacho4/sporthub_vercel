@@ -11,7 +11,7 @@ const filter = (list, category, query) => {
 		if (category === "all" || product.category === category) {
 			if (!query) {
 				filteredList.push(product);
-			} else if (product.name.includes(query)) {
+			} else if (product.name.toLowerCase().replaceAll(" ","").includes(query)) {
 				filteredList.push(product);
 			}
 		}
@@ -72,7 +72,7 @@ const productList = [
 	}
 ];
 
-export default function Search({ }) {
+export default function Search({  }) {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [filteredList, setFilteredList] = useState([]);
 	const category = searchParams.get("c");
@@ -84,7 +84,7 @@ export default function Search({ }) {
 
 	return (
 		<div>
-			<SearchBar />
+			<SearchBar lastQuery={query} lastCategory={category} />
 
 			<h5 className="mb-3">Looking for {query !== null ? query : "products "} in {category}</h5>
 

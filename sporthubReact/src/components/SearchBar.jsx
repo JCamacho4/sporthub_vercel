@@ -1,23 +1,30 @@
 import { useNavigate } from "react-router-dom";
 
-export default function SearchBar() {
+export default function SearchBar({ lastQuery, lastCategory }) {
 	const navigate = useNavigate();
 
 	const doSearch = () => {
 		const query = document.getElementById("searchBar").value;
 		const category = document.getElementById("categories").value;
+		console.log(query);
 
-		let url = "/search?c=" + category;
-		if (query !== "") url += "&q=" + query;
-		navigate(url);
+		if (query !== "") {
+			let url = "/search?c=" + category;
+			if (query !== "") url += "&q=" + query;
+			navigate(url);
+		}
+	};
+
+	const onEnter = (e) => {
+		if (e.key === 'Enter') doSearch();
 	};
 
 	return (
 		<div className="p-3 mb-3 rounded bg-white">
 			<h5 className="mb-3">Search what you want</h5>
 			<div className="input-group mb-3">
-				<input id="searchBar" type="text" className="form-control w-50" />
-				<select className="form-select" id="categories" defaultValue="all">
+				<input id="searchBar" type="text" className="form-control w-50" defaultValue={lastQuery} onKeyUp={(e) => onEnter(e)} />
+				<select className="form-select" id="categories" defaultValue={lastCategory}>
 					<option value="all">All Categories</option>
 					<option value="football">Football</option>
 					<option value="basketball">Basketball</option>
