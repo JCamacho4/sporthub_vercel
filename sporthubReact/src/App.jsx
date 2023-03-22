@@ -33,38 +33,40 @@ function App() {
 		<div>
 			<BrowserRouter>
 				<Nav userLogged={userLogged} setUserLogged={setUserLogged} />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/about-us" element={<AboutUs />} />
-					<Route
-						path="/login"
-						element={
-							<Login userLogged={userLogged} setUserLogged={setUserLogged} />
-						}
-					></Route>
-					<Route
-						path="/signup"
-						element={
-							<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
-						}
-					>
-						{" "}
-					</Route>
-					<Route
-						path="/profile/:username"
-						element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
+				<div className="container main-container">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/about-us" element={<AboutUs />} />
+						<Route
+							path="/login"
+							element={
+								<Login userLogged={userLogged} setUserLogged={setUserLogged} />
+							}
+						></Route>
+						<Route
+							path="/signup"
+							element={
+								<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
+							}
+						>
+							{" "}
+						</Route>
+						<Route
+							path="/profile/:username"
+							element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
 
-					<Route
-						path="/categories"
-						element={<Categories />} />
-					<Route
-						path="/categories/:category"
-						element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
+						<Route
+							path="/categories"
+							element={<Categories />} />
+						<Route
+							path="/categories/:category"
+							element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
 
-					<Route
-						path="/search"
-						element={<Search userLogged={userLogged} setUserLogged={setUserLogged}  />} />
-				</Routes>
+						<Route
+							path="/search"
+							element={<Search userLogged={userLogged} setUserLogged={setUserLogged} />} />
+					</Routes>
+				</div>
 			</BrowserRouter>
 		</div>
 	);
