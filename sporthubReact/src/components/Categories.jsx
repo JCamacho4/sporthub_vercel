@@ -6,7 +6,7 @@ export default function Categories() {
 
 	return (
 		<div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/5110/5110777.png" alt="All categories" />
 				</div>
@@ -15,7 +15,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=all")}>Search All</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/1099/1099672.png" alt="Football" />
 				</div>
@@ -24,7 +24,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=football")}>Search Football</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/217/217076.png" alt="Basketball" />
 				</div>
@@ -33,7 +33,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=basketball")}>Search Basketball</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/5022/5022167.png" alt="Boxing" />
 				</div>
@@ -43,7 +43,7 @@ export default function Categories() {
 				</div>
 			</div>
 
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/186/186192.png" alt="Swimming" />
 				</div>
@@ -52,7 +52,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=swimming")}>Search Swimming</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/1576/1576746.png" alt="Track & Field" />
 				</div>
@@ -61,7 +61,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=track")}>Search Track & Field</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://cdn-icons-png.flaticon.com/512/523/523686.png" alt="Tennis" />
 				</div>
@@ -70,7 +70,7 @@ export default function Categories() {
 					<button className="button" onClick={() => navigate("/search?c=tennis")}>Search Tennis</button>
 				</div>
 			</div>
-			<div className="card categoriesCard">
+			<div className="categoriesCard">
 				<div className="img">
 					<img src="https://www.pngitem.com/pimgs/m/463-4635382_circle-icons-bike-bike-icon-png-circle-transparent.png" alt="Cycling" />
 				</div>

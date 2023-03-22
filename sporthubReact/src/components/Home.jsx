@@ -22,7 +22,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<SearchBar />
+			<SearchBar lastQuery={""} lastCategory={"all"} />
 
 		</div>
 	);
