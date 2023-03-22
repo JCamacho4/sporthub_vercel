@@ -1,13 +1,29 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../assets/styles/product.css";
 
 export default function Product(props){
-    const location = useLocation();
-    const product = location.state;
+    const [product, setProduct] = useState();
+    
+    let params = useParams();
+    let productName = params.product;
+    let productList = props.productList;
 
-    return(
-        <div>
-            <h1>Product</h1>
-            {console.log(props)}
-        </div>
-    )
+    useEffect(() => {
+        productList.forEach((product) => {
+            if(product.name === productName){
+                setProduct(product);
+            }
+        });
+    } , []);
+
+    return (
+        product !== undefined ? (
+            <div className="product-div">
+                <h1>{productName}</h1>
+                <img style={{ maxWidth: '30%', height: 'auto' }} src={product.photo} alt="photo"/>
+                <p>{product.description}</p>
+            </div>
+        ) : null
+    );
 }

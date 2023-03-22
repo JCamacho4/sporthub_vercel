@@ -30,7 +30,6 @@ export default function Search({ productList }) {
 	const navigate = useNavigate();
 
 	const openProduct = (product) => {
-		console.log(product.name);
 		// REMINDER
 		// hacer el path con un id en vez de con nombre
 		let path = "/product/" + product.name;

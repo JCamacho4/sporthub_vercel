@@ -119,8 +119,8 @@ function App() {
 						element={<Search userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} />} />
 					<Route
 						// cambiar nombre a id cuando este
-						path="/product/:nombre"
-						element={<Product userLogged={userLogged} setUserLogged={setUserLogged}/>} />
+						path="/product/:product"
+						element={<Product userLogged={userLogged} setUserLogged={setUserLogged} productList={productList}/>} />
 				</Routes>
 			</BrowserRouter>
 		</div>
