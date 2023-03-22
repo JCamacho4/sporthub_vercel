@@ -73,7 +73,7 @@ export default function AboutUs() {
             continue developing and improving our platform, and we hope that you will join us on this journey.
             If you would like to see our code or contribute to our project, please visit our GitHub.
           </p>
-          <a href="https://github.com/4ntoniofr/sporthub">
+          <a id="about-us-ghub" href="https://github.com/4ntoniofr/sporthub">
             <ion-icon size="large" name="logo-github" />
           </a>
         </section>

@@ -40,11 +40,11 @@ export default function Login({ userLogged, setUserLogged }) {
 
   return (
     <section id="loginSection">
-      <div className="form-box">
+      <div className="form-box loginFormBox">
         <div className="form-value">
           <form onSubmit={loginEvent}>
             <h2>Login</h2>
-            <div className="inputbox">
+            <div className="inputbox loginInputbox">
             <ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
@@ -54,7 +54,7 @@ export default function Login({ userLogged, setUserLogged }) {
               <label>Username</label>
             </div>  
               
-            <div className="inputbox">
+            <div className="inputbox loginInputbox">
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"
