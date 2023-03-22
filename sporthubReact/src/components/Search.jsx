@@ -3,6 +3,32 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
+
+const gridView = (list, ROW_SIZE) => {
+	let res = [];
+	for (let i = 0; i < list.length; i += ROW_SIZE){
+		res.push(
+			<div className="row">
+				{
+					list.slice(i,i+ROW_SIZE).map((p) => {
+						return (
+							<div className="col-3 my-2" key={p.name}>
+								<div className="card h-100">
+									<img src={p.photo} alt="photo" className="card-img-top" />
+									<div className="card-body">
+										<h5 className="card-title">{p.name}</h5>
+										<p className="card-text">{p.description}</p>
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
+			</div>
+		);
+	}
+	return res;
+};
 import "../assets/styles/search.css";
 
 const filter = (list, category, query) => {
@@ -12,7 +38,7 @@ const filter = (list, category, query) => {
 		if (category === "all" || product.category === category) {
 			if (!query) {
 				filteredList.push(product);
-			} else if (product.name.includes(query)) {
+			} else if (product.name.toLowerCase().replaceAll(" ","").includes(query)) {
 				filteredList.push(product);
 			}
 		}
@@ -27,6 +53,7 @@ export default function Search({ productList }) {
 	const [filteredList, setFilteredList] = useState([]);
 	const category = searchParams.get("c");
 	const query = searchParams.get("q");
+	const ROW_SIZE = 4;
 	const navigate = useNavigate();
 
 	const openProduct = (product) => {
@@ -42,22 +69,12 @@ export default function Search({ productList }) {
 
 	return (
 		<div>
-			<SearchBar />
+			<SearchBar lastQuery={query} lastCategory={category} />
 
 			<h5 className="mb-3">Looking for {query !== null ? query : "products "} in {category}</h5>
 
 			<div>
-				{filteredList.map((product) => {
-					return (
-						<div onClick={() => openProduct(product)} className="card cardSearch" key={product.name}>
-							<img className="card-img-top" src={product.photo} alt="photo" />
-							<div className="card-body">
-								<h5 className="card-title">{product.name}</h5>
-								<p className="card-text">{product.description}</p>
-							</div>
-						</div>
-					);
-				})}
+				{gridView(filteredList, ROW_SIZE)}
 			</div>
 		</div>
 	);
