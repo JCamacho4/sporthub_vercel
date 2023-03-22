@@ -6,7 +6,6 @@ export default function SearchBar({ lastQuery, lastCategory }) {
 	const doSearch = () => {
 		const query = document.getElementById("searchBar").value;
 		const category = document.getElementById("categories").value;
-		console.log(query);
 
 		if (query !== "") {
 			let url = "/search?c=" + category;
