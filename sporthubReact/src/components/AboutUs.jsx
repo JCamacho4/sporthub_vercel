@@ -42,7 +42,7 @@ export default function AboutUs() {
 
 
       <div className="row align-items-start project-div">
-          <section className="col project-section">
+        <section className="col project-section">
           <h2 className="about-us-header">
             Team
           </h2>
@@ -64,20 +64,32 @@ export default function AboutUs() {
             Technologies
           </h2>
           <p>
-            We decided to use React and SQLite3 as our primary technologies for this project. React is a popular JavaScript
-            library for building user interfaces, while SQLite3 is a lightweight database management system that is ideal for
-            small-scale projects. By using these technologies, we were able to create a platform that is both responsive and efficient.
+            We decided to use React and SQLite3 as our core technologies for this project. 
+            React, is utilized for constructing user interfaces. 
+            SQLite3, on the other hand, is a lightweight database management system that is best suited for modest-scale endeavors. 
+            This has resulted in the development of a platform that is both responsive and efficient.
           </p>
           <p>
             Together, we are committed to making SportHub the best possible platform for our users. We are excited to
             continue developing and improving our platform, and we hope that you will join us on this journey.
-            If you would like to see our code or contribute to our project, please visit our GitHub.
+            If you are interested in examining our code or contributing to our project, we encourage you to visit our GitHub repository.
           </p>
           <a id="about-us-ghub" href="https://github.com/4ntoniofr/sporthub">
             <ion-icon size="large" name="logo-github" />
           </a>
         </section>
       </div>
+
+      <section className="col project-section">
+          <h4 className="about-us-header"> 
+          <ion-icon className="arrow-newsletter" name="chevron-down-outline"/> Suscribe to our newsletter! <ion-icon className="arrow-newsletter" name="chevron-down-outline"/>
+          </h4>
+
+          <button className="mail-button">
+            <ion-icon id="mail-icon" name="mail-outline" />
+          </button>
+        </section>
+
     </div>
   );
 }
