@@ -41,8 +41,8 @@ export default function AboutUs() {
       </section>
 
 
-      <div className="row project-div">
-        <section className="col md-6 project-section">
+      <div className="row align-items-start project-div">
+          <section className="col project-section">
           <h2 className="about-us-header">
             Team
           </h2>
@@ -59,7 +59,7 @@ export default function AboutUs() {
           </p>
         </section>
 
-        <section className="col md-6 project-section">
+        <section className="col project-section">
           <h2 className="about-us-header">
             Technologies
           </h2>
