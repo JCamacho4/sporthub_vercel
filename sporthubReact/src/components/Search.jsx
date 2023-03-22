@@ -13,11 +13,10 @@ const gridView = (list, ROW_SIZE) => {
 					list.slice(i,i+ROW_SIZE).map((p) => {
 						return (
 							<div className="col-3 my-2" key={p.name}>
-								<div className="card h-100">
+								<div className="card h-100 text-center">
 									<img src={p.photo} alt="photo" className="card-img-top" />
 									<div className="card-body">
 										<h5 className="card-title">{p.name}</h5>
-										<p className="card-text">{p.description}</p>
 									</div>
 								</div>
 							</div>
