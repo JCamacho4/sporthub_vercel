@@ -15,11 +15,11 @@ export default function Profile({ userLogged, setUserLogged }) {
 
     return (
         <section id="profileCard">
-            <div className="card">
+            <div className="card profileCard">
                 <div className="img">
                     <img src="https://telematicanet.ucol.mx/egresados/assets/images/la-imagen-del-usuario-con-el-fondo-negro-626x626.jpg" alt="error"/>
                 </div>
-                <div className="content">
+                <div className="content profileCardContent">
                     <h2>Pepe</h2>
                     <p><strong>@</strong>{username}</p>
                     <button className="button">Change Personal Info</button> 

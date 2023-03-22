@@ -1,4 +1,4 @@
-.dropdown {
+.dropdownUser {
   position: relative;
   display: inline-block;
   color: black;
@@ -23,7 +23,7 @@
   width: calc(100% + 20px);
 }
 
-.dropdown-menu a:hover {
+.menuUser a:hover {
   background: #ffa500;
   transition: all 0.2s ease-in-out;
 }
