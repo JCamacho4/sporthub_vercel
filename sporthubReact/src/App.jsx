@@ -10,6 +10,7 @@ import "./assets/styles/style.css";
 import axios from "axios";
 import Categories from "./components/Categories";
 import Search from "./components/Search";
+import Product from "./components/Product";
 
 function App() {
 	const [userLogged, setUserLogged] = useState(null);
@@ -64,6 +65,10 @@ function App() {
 					<Route
 						path="/search"
 						element={<Search userLogged={userLogged} setUserLogged={setUserLogged}  />} />
+					<Route
+						// cambiar nombre a id cuando este
+						path="/product/:nombre"
+						element={<Product userLogged={userLogged} setUserLogged={setUserLogged}/>} />
 				</Routes>
 			</BrowserRouter>
 		</div>
