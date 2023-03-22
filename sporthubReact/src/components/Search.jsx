@@ -77,6 +77,7 @@ export default function Search({  }) {
 	const [filteredList, setFilteredList] = useState([]);
 	const category = searchParams.get("c");
 	const query = searchParams.get("q");
+	const ROW_SIZE = 4;
 
 	useEffect(() => {
 		setFilteredList(filter(productList, category, query));
