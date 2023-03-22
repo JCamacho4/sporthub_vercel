@@ -27,13 +27,13 @@ export default function Nav({ userLogged, setUserLogged }) {
     return (
       <>
         <li className="nav-item">
-          <div className="dropdown" id="profile-dropdown">
+          <div className="dropdown dropdownUser" id="profile-dropdown">
             <button type="button" className="button" id="menuBtn" data-bs-toggle="dropdown">
               <ion-icon name="person-circle-outline" id="icono"></ion-icon>
               {"   " + userLogged.username + "   "}
               <ion-icon name="chevron-forward-outline" id="icono2"></ion-icon>
             </button>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu menuUser">
               <li> <a className="dropdown-item" href={`/profile/${userLogged.username}`}>Profile</a> </li>
               <li> <a className="dropdown-item" href="/wish-list/">Wish list</a> </li>
               <li> <a className="dropdown-item" href="#"
