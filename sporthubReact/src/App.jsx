@@ -32,6 +32,7 @@ function App() {
 
 	const productList = [
 		{
+			id: 1,
 			name: "Brooks running shoes",
 			category: "track",
 			description: "Unused running shoes",
@@ -39,6 +40,7 @@ function App() {
 			price: 50
 		},
 		{
+			id: 2,
 			name: "Babolat tennis racket",
 			category: "tennis",
 			description: "Babolat tennis racket",
@@ -46,6 +48,7 @@ function App() {
 			price: 50
 		},
 		{
+			id: 3,
 			name: "Wilson Basketball",
 			category: "basketball",
 			description: "",
@@ -53,6 +56,7 @@ function App() {
 			price: 20
 		},
 		{
+			id: 4,
 			name: "Nike Football Boots",
 			category: "football",
 			description: "",
@@ -60,6 +64,7 @@ function App() {
 			price: 90
 		},
 		{
+			id: 5,
 			name: "Swimming Suit",
 			category: "swimming",
 			description: "",
@@ -67,6 +72,7 @@ function App() {
 			price: 30
 		},
 		{
+			id: 6,
 			name: "Road Bike",
 			category: "cycling",
 			description: "",
@@ -74,6 +80,7 @@ function App() {
 			price: 200
 		},
 		{
+			id: 7,
 			name: "Everlast Boxing Gloves",
 			category: "boxing",
 			description: "",
@@ -120,7 +127,7 @@ function App() {
 							element={<Search userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} />} />
 						<Route
 							// cambiar nombre a id cuando este
-							path="/product/:product"
+							path="/product/:productId"
 							element={<Product userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} />} />
 					</Routes>
 				</div>

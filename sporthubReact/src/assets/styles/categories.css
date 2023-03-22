@@ -1,5 +1,79 @@
-div .categoriesCard{
-	width: calc(100%/4 - 10px);
-	display: inline-flex;
+.categoriesCard{
+	width: 275px;
+	height: 250px;
+	border-radius: 20px;
+	border-color: #000;
+	position: relative;
+	top: -20%;
+	display: flex;
+	cursor: pointer;
+	justify-content: center;
 	margin: 5px;
+}
+
+.categoriesCard::before{
+	content: "";
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	width: 96%;
+	height: 100px;
+	z-index: 1;
+	border-radius: 20px 20px 0 0;
+	background-color: #ffa500;
+	transform-origin: bottom;
+	transition: transform .4s;
+	
+}
+
+.categoriesCard:hover::before{
+	transform: translateY(-5px) scaleY(1.1);
+}
+
+.categoriesCard .img{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	z-index: 10;
+	transform: translateY(65px) translateX(-20px);
+	border: 10px solid #fff;
+	overflow: hidden;
+	position: absolute;
+	left: 100px;
+	bottom: 65%;
+	background: #fff;  
+}
+
+.categoriesCard .img img{
+	width: 120%;
+	height: 120%;
+	transform: translate(-8%,-8%);
+}
+
+.categoriesCardContent{
+	width: 100%;
+	height: 100%;
+	transform: translateY(170px);
+	display: flex;
+	flex-direction: column;
+	z-index: 20;
+	align-items: center;
+}
+
+.categoriesCardContent p{
+	margin: 0 0;
+}
+
+.categoriesCardContent button{
+	width: calc(3*100% / 4);
+	padding: 10px;
+	position: relative;
+	top: 20px;
+	border-radius: 20px;
+	outline: none;
+	border: none;
+	background: #ffa500;
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
 }

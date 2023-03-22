@@ -6,77 +6,77 @@ export default function Categories() {
 
 	return (
 		<div className="row">
-			<div className="card h-100 categoriesCard col-3 my-2">
-				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/5110/5110777.png" alt="All categories" />
+			<div className="card categoriesCard col-3 mb-5">
+				<div className="img">
+					<img src="https://cdn-icons-png.flaticon.com/512/5110/5110777.png" alt="All categories" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>All categories</h5>
-					<button className="button" onClick={() => navigate("/search?c=all")}>Search All</button>
+					<button onClick={() => navigate("/search?c=all")}>Search All</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/1099/1099672.png" alt="Football" />
+					<img src="https://cdn-icons-png.flaticon.com/512/1099/1099672.png" alt="Football" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Football</h5>
-					<button className="button" onClick={() => navigate("/search?c=football")}>Search Football</button>
+					<button onClick={() => navigate("/search?c=football")}>Search Football</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/217/217076.png" alt="Basketball" />
+					<img src="https://cdn-icons-png.flaticon.com/512/217/217076.png" alt="Basketball" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Basketball</h5>
-					<button className="button" onClick={() => navigate("/search?c=basketball")}>Search Basketball</button>
+					<button onClick={() => navigate("/search?c=basketball")}>Search Basketball</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/5022/5022167.png" alt="Boxing" />
+					<img src="https://cdn-icons-png.flaticon.com/512/5022/5022167.png" alt="Boxing" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Boxing</h5>
-					<button className="button" onClick={() => navigate("/search?c=boxing")}>Search Boxing</button>
+					<button onClick={() => navigate("/search?c=boxing")}>Search Boxing</button>
 				</div>
 			</div>
 
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/186/186192.png" alt="Swimming" />
+					<img src="https://cdn-icons-png.flaticon.com/512/186/186192.png" alt="Swimming" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Swimming</h5>
-					<button className="button" onClick={() => navigate("/search?c=swimming")}>Search Swimming</button>
+					<button onClick={() => navigate("/search?c=swimming")}>Search Swimming</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/1576/1576746.png" alt="Track & Field" />
+					<img src="https://cdn-icons-png.flaticon.com/512/1576/1576746.png" alt="Track & Field" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Track & Field</h5>
-					<button className="button" onClick={() => navigate("/search?c=track")}>Search Track & Field</button>
+					<button onClick={() => navigate("/search?c=track")}>Search Track & Field</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://cdn-icons-png.flaticon.com/512/523/523686.png" alt="Tennis" />
+					<img src="https://cdn-icons-png.flaticon.com/512/523/523686.png" alt="Tennis" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Tennis</h5>
-					<button className="button" onClick={() => navigate("/search?c=tennis")}>Search Tennis</button>
+					<button onClick={() => navigate("/search?c=tennis")}>Search Tennis</button>
 				</div>
 			</div>
-			<div className="card categoriesCard col-3 my-2">
+			<div className="card categoriesCard col-3 mb-5">
 				<div className="img card-image-top">
-					<img className="w-100 h-100" src="https://www.pngitem.com/pimgs/m/463-4635382_circle-icons-bike-bike-icon-png-circle-transparent.png" alt="Cycling" />
+					<img src="https://www.pngitem.com/pimgs/m/463-4635382_circle-icons-bike-bike-icon-png-circle-transparent.png" alt="Cycling" />
 				</div>
-				<div className="content">
+				<div className="content categoriesCardContent">
 					<h5>Cycling</h5>
-					<button className="button" onClick={() => navigate("/search?c=cycling")}>Search Cycling</button>
+					<button onClick={() => navigate("/search?c=cycling")}>Search Cycling</button>
 				</div>
 			</div>
 		</div>

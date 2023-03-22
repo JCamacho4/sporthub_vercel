@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../assets/styles/forms.css"
 
 export default function SignUp({ userLogged, setUserLogged }) {
   const [usernameInput, setUsernameInput] = useState("");
@@ -46,23 +47,23 @@ export default function SignUp({ userLogged, setUserLogged }) {
   }, []);
 
   return (
-    <section>
-      <div className="form-box" id="signup">
+    <section id="formSection">
+      <div className="form-box formBox" id="signup">
         <div className="form-value">
           <form onSubmit={signUpEvent}>
             <h2>Sign Up</h2>
 
-            <div className="inputbox">
-              <ion-icon name="person-outline"></ion-icon>
+            <div className="inputbox formInputbox">
+            	<ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
                 className="form-control"
                 onChange={(event) => setUsernameInput(event.target.value)}
               />
               <label>Username</label>
-            </div>  
+            </div>
 
-            <div className="inputbox">
+            <div className="inputbox formInputbox">
               <ion-icon name="id-card-outline"></ion-icon>
               <input id="name"
                 type="text"
@@ -72,7 +73,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <label>Name</label>
             </div>
 
-            <div className="inputbox">
+            <div className="inputbox formInputbox">
               <ion-icon name="mail-outline"></ion-icon>
               <input id="email"
                 type="email"
@@ -82,7 +83,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <label>Email</label>
             </div>
               
-            <div className="inputbox">
+            <div className="inputbox formInputbox">
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"

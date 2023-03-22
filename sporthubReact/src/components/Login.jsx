@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../assets/styles/login.css"
+import "../assets/styles/forms.css"
 // import axios from "axios";
 
 export default function Login({ userLogged, setUserLogged }) {
-  const [usernameInput, setUsernameInput] = React.useState("");
-  const [passwordInput, setPasswordInput] = React.useState("");
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
   const navigate = useNavigate();
 
   const loginEvent = (e) => {
@@ -39,22 +39,22 @@ export default function Login({ userLogged, setUserLogged }) {
   }, []);
 
   return (
-    <section id="loginSection">
-      <div className="form-box loginFormBox">
+    <section id="formSection">
+      <div className="form-box formBox">
         <div className="form-value">
           <form onSubmit={loginEvent}>
             <h2>Login</h2>
-            <div className="inputbox loginInputbox">
-            <ion-icon name="person-outline"></ion-icon>
+            <div className="inputbox formInputbox">
+            	<ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
                 className="form-control"
                 onChange={(event) => setUsernameInput(event.target.value)}
               />
               <label>Username</label>
-            </div>  
+            </div>
               
-            <div className="inputbox loginInputbox">
+            <div className="inputbox formInputbox">
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"
@@ -70,7 +70,7 @@ export default function Login({ userLogged, setUserLogged }) {
               Log in
             </button>
             <div className="register">
-              <label for="">Not registered already? <a href="/signup">Register here</a></label>
+              <label>Not registered already? <a href="/signup">Register here</a></label>
             </div>
           </form>
         </div>

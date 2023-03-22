@@ -31,9 +31,7 @@ export default function Search({ productList }) {
 	const navigate = useNavigate();
 
 const openProduct = (product) => {
-	// REMINDER
-	// hacer el path con un id en vez de con nombre
-	let path = "/product/" + product.name;
+	let path = "/product/" + product.id;
 	navigate(path, { product: product });
 };
 
@@ -45,7 +43,7 @@ const gridView = (list, ROW_SIZE) => {
 				{
 					list.slice(i,i+ROW_SIZE).map((p) => {
 						return (
-							<div onClick={() =>  openProduct(p)} className="col-3 my-2" key={p.name}>
+							<div onClick={() =>  openProduct(p)} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2" key={p.name}>
 								<div className="card h-100 text-center">
 									<img src={p.photo} alt="photo" className="card-img-top" />
 									<div className="card-body">
