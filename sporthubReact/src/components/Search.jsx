@@ -1,33 +1,9 @@
 //import "../assets/styles/search.css";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
-
-const gridView = (list, ROW_SIZE) => {
-	let res = [];
-	for (let i = 0; i < list.length; i += ROW_SIZE){
-		res.push(
-			<div className="row">
-				{
-					list.slice(i,i+ROW_SIZE).map((p) => {
-						return (
-							<div className="col-3 my-2" key={p.name}>
-								<div className="card h-100 text-center">
-									<img src={p.photo} alt="photo" className="card-img-top" />
-									<div className="card-body">
-										<h5 className="card-title">{p.name}</h5>
-									</div>
-								</div>
-							</div>
-						);
-					})
-				}
-			</div>
-		);
-	}
-	return res;
-};
+import "../assets/styles/search.css";
 
 const filter = (list, category, query) => {
 	let filteredList = [];
@@ -52,6 +28,40 @@ export default function Search({ productList }) {
 	const category = searchParams.get("c");
 	const query = searchParams.get("q");
 	const ROW_SIZE = 4;
+	const navigate = useNavigate();
+
+const openProduct = (product) => {
+	// REMINDER
+	// hacer el path con un id en vez de con nombre
+	let path = "/product/" + product.name;
+	navigate(path, { product: product });
+};
+
+const gridView = (list, ROW_SIZE) => {
+	let res = [];
+	for (let i = 0; i < list.length; i += ROW_SIZE){
+		res.push(
+			<div className="row">
+				{
+					list.slice(i,i+ROW_SIZE).map((p) => {
+						return (
+							<div onClick={() =>  openProduct(p)} className="col-3 my-2" key={p.name}>
+								<div className="card h-100 text-center">
+									<img src={p.photo} alt="photo" className="card-img-top" />
+									<div className="card-body">
+										<h5 className="card-title">{p.name}</h5>
+										<p className="card-text">{p.description}</p>
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
+			</div>
+		);
+	}
+	return res;
+};
 
 	useEffect(() => {
 		setFilteredList(filter(productList, category, query));

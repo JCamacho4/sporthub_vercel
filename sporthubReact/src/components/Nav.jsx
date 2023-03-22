@@ -26,9 +26,9 @@ export default function Nav({ userLogged, setUserLogged }) {
   const helloUserAndLogout = () => {
     return (
       <>
-        <li className="nav-item">
+        <li className="nav-item item-user-profile">
           <div className="dropdown dropdownUser" id="profile-dropdown">
-            <button type="button" className="button" id="menuBtn" data-bs-toggle="dropdown">
+            <button type="button" className="button-profile" id="menuBtn" data-bs-toggle="dropdown">
               <ion-icon name="person-circle-outline" id="icono"></ion-icon>
               {"   " + userLogged.username + "   "}
               <ion-icon name="chevron-forward-outline" id="icono2"></ion-icon>
@@ -52,9 +52,9 @@ export default function Nav({ userLogged, setUserLogged }) {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg p-0 mb-2 z-3">
+      <nav className="navbar navbar-expand-lg p-0 fixed-top top-nav">
         <div className="container-fluid">
-          <div className="navbar-brand" href="#">
+          <div className="navbar-brand item-brand" href="#">
             <img
               width="200"
               alt="Logo"
@@ -85,14 +85,14 @@ export default function Nav({ userLogged, setUserLogged }) {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to={"/about-us"}>
-                  About Us
+                <Link className="nav-link" to={"/categories"}>
+                  Categories
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to={"/categories"}>
-                  Categories
+                <Link className="nav-link" to={"/about-us"}>
+                  About Us
                 </Link>
               </li>
             </ul>

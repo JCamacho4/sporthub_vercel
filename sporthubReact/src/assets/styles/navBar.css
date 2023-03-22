@@ -29,13 +29,6 @@
 }
 
 
-ion-icon {
-  position: relative;
-  top: 7px;
-  font-size: 1.5em;
-  margin-right: 5px;
-}
-
 .button2 {
   width: 80px;
   height: 40px;
@@ -50,6 +43,10 @@ ion-icon {
 
 #icono2, #icono {
   margin-left: 7px;
+  position: relative;
+  top: 7px;
+  font-size: 1.5em;
+  margin-right: 5px;
 }
 
 
@@ -57,4 +54,22 @@ ion-icon {
   position: relative;
   display: inline-block;
   font-size: 30px;
+}
+
+.nav-item {
+  margin: 20px;
+  height: -10px;
+}
+
+.top-nav{
+  background-color: #fff7ee;
+  height: 100px;
+}
+
+.item-user-profile{
+  margin-right: 80px;
+}
+
+.item-brand{
+  margin-left: 50px;
 }
