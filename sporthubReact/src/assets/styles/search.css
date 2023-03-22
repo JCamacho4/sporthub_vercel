@@ -1,0 +1,5 @@
+.productCard:hover {
+	border: 1px solid #ffa500;
+	transition: 0.3s;
+	transform: scale(1.05);
+}

@@ -1,4 +1,4 @@
-//import "../assets/styles/search.css";
+import "../assets/styles/search.css";
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -44,11 +44,11 @@ const gridView = (list, ROW_SIZE) => {
 					list.slice(i,i+ROW_SIZE).map((p) => {
 						return (
 							<div onClick={() =>  openProduct(p)} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2" key={p.name}>
-								<div className="card h-100 text-center">
+								<div className="card h-100 text-center productCard">
 									<img src={p.photo} alt="photo" className="card-img-top" />
 									<div className="card-body">
 										<h5 className="card-title">{p.name}</h5>
-										<p className="card-text">{p.description}</p>
+										<p className="card-text">{p.price + "€"}</p>
 									</div>
 								</div>
 							</div>

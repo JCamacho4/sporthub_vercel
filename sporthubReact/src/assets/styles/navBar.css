@@ -41,6 +41,11 @@
   font-size: 1em;
 }
 
+.button2:hover {
+	background-color: #ffa600ad;
+	transition: 0.2s;
+}
+
 #icono2, #icono {
   margin-left: 7px;
   position: relative;
