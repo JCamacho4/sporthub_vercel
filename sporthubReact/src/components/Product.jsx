@@ -9,6 +9,8 @@ export default function Product(props) {
 	let productId = params.productId;
 	let productList = props.productList;
 
+
+	
 	useEffect(() => {
 		productList.forEach((product) => {
 			if (product.id == productId) {

@@ -38,15 +38,20 @@ function App() {
 //				userId: userLogged.id,
 //				productId: product.id,
 //			});
-			let foundProduct = cart.find(producto => producto.prod === product);
-			if(foundProduct){
-				foundProduct.quantity++;
-			}else{
-				cart.push({prod:product, quantity:1});
+			const updatedCart = cart.map((item) => {
+				if (item.prod === product) {
+				return { ...item, quantity: item.quantity + 1 };
+				}
+				return item;
+			});
+			
+			if (!updatedCart.some((item) => item.prod === product)) {
+				updatedCart.push({ prod: product, quantity: 1 });
 				console.log("Product added to cart: " + product.name);
 			}
-			console.log(cart);
-			setCart(cart);
+			
+			console.log(updatedCart);
+			setCart(updatedCart);
 		}
 	};
 
@@ -113,7 +118,7 @@ function App() {
 	return (
 		<div>
 			<BrowserRouter>
-				<Nav userLogged={userLogged} setUserLogged={setUserLogged} />
+				<Nav userLogged={userLogged} setUserLogged={setUserLogged} cart={cart}/>
 				<div className="container main-container">
 					<Routes>
 						<Route path="/" element={<Home />} />

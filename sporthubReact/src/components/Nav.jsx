@@ -2,7 +2,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 import "../assets/styles/navBar.css";
 
-export default function Nav({ userLogged, setUserLogged }) {
+export default function Nav({ userLogged, setUserLogged, cart }) {
+  const cartItems = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
+
   const loginAndRegister = () => {
     return (
       <>
@@ -28,7 +36,7 @@ export default function Nav({ userLogged, setUserLogged }) {
       <>
         <li className="nav-item">
           <Link className="nav-link" to={"/cart"}>
-            <button className="button2">
+            <button className="button2">{cartItems()}
             <ion-icon name="cart" id="icono"></ion-icon>
             </button>
           </Link>
