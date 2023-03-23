@@ -26,6 +26,13 @@ export default function Nav({ userLogged, setUserLogged }) {
   const helloUserAndLogout = () => {
     return (
       <>
+        <li className="nav-item">
+          <Link className="nav-link" to={"/cart"}>
+            <button className="button2">
+            <ion-icon name="cart" id="icono"></ion-icon>
+            </button>
+          </Link>
+        </li>
         <li className="nav-item item-user-profile">
           <div className="dropdown dropdownUser" id="profile-dropdown">
             <button type="button" className="button-profile" id="menuBtn" data-bs-toggle="dropdown">

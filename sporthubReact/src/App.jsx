@@ -11,9 +11,11 @@ import axios from "axios";
 import Categories from "./components/Categories";
 import Search from "./components/Search";
 import Product from "./components/Product";
+import Cart from "./components/Cart";
 
 function App() {
 	const [userLogged, setUserLogged] = useState(null);
+	const [cart, setCart] = useState([]);
 
 	useEffect(() => {
 		if (localStorage.getItem("user")) {
@@ -29,6 +31,25 @@ function App() {
 				.catch((error) => { });
 		}
 	}, []);
+
+	const addToCart = (product) => {
+		if (userLogged) {
+//		axios.post("http://localhost:8080/addToCart", {
+//				userId: userLogged.id,
+//				productId: product.id,
+//			});
+			let foundProduct = cart.find(producto => producto.prod === product);
+			if(foundProduct){
+				foundProduct.quantity++;
+			}else{
+				cart.push({prod:product, quantity:1});
+				console.log("Product added to cart: " + product.name);
+			}
+			console.log(cart);
+			setCart(cart);
+		}
+	};
+
 
 	const productList = [
 		{
@@ -128,7 +149,10 @@ function App() {
 						<Route
 							// cambiar nombre a id cuando este
 							path="/product/:productId"
-							element={<Product userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} />} />
+							element={<Product userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} addToCart={addToCart} />} />
+						<Route
+							path="/cart"
+							element={<Cart userLogged={userLogged} cart={cart} setCart={setCart} />} />
 					</Routes>
 				</div>
 			</BrowserRouter>
