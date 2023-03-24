@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../assets/styles/searchBar.css"
 
 export default function SearchBar({ lastQuery, lastCategory }) {
 	const navigate = useNavigate();
@@ -22,8 +23,8 @@ export default function SearchBar({ lastQuery, lastCategory }) {
 		<div className="p-3 mb-3 rounded bg-white">
 			<h5 className="mb-3">Search what you want</h5>
 			<div className="input-group mb-3">
-				<input id="searchBar" type="text" className="form-control w-50" defaultValue={lastQuery} onKeyUp={(e) => onEnter(e)} />
-				<select className="form-select" id="categories" defaultValue={lastCategory}>
+				<input type="text" className="form-control w-50 searchBar" id="searchBar" defaultValue={lastQuery} onKeyUp={(e) => onEnter(e)} />
+				<select className="form-select searchBar" id="categories" defaultValue={lastCategory}>
 					<option value="all">All Categories</option>
 					<option value="football">Football</option>
 					<option value="basketball">Basketball</option>
@@ -33,7 +34,10 @@ export default function SearchBar({ lastQuery, lastCategory }) {
 					<option value="tennis">Tennis</option>
 					<option value="cycling">Cycling</option>
 				</select>
-				<button id="searchButton" className="btn btn-primary" onClick={() => doSearch()}>Search</button>
+				<button id="searchButton" className="btn btn-primary" onClick={() => doSearch()}>
+					<ion-icon name="search-outline" className="searchIcon"></ion-icon>
+					Search
+				</button>
 			</div>
 		</div>
 	);

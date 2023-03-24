@@ -1,0 +1,12 @@
+.addButton, .removeButton {
+	background: #ffa500;
+	border-radius: 20px;
+	outline: none;
+	border: none;
+	color: #000;
+	font-weight: 600;
+}
+
+.addButton:hover, .removeButton:hover {
+	background: #ffc251;
+}

@@ -1,0 +1,18 @@
+#searchButton{
+	color: black;
+	background-color: #ffa500;
+	border-color: black;
+}
+
+#searchButton:hover{
+	background-color: #ffa600ad;
+}
+
+.searchBar{
+	border-color: black;
+}
+
+.searchBar:focus { 
+	box-shadow: 0px 0px 10px -2px #ffa500;
+	outline-width: 0px;
+}

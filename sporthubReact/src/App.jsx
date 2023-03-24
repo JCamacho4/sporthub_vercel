@@ -39,13 +39,13 @@ function App() {
 //				productId: product.id,
 //			});
 			const updatedCart = cart.map((item) => {
-				if (item.prod === product) {
-				return { ...item, quantity: item.quantity + 1 };
+				if (item.prod.id === product.id) {
+					return { ...item, quantity: item.quantity + 1 };
 				}
 				return item;
 			});
 			
-			if (!updatedCart.some((item) => item.prod === product)) {
+			if (!updatedCart.some((item) => item.prod.id === product.id)) {
 				updatedCart.push({ prod: product, quantity: 1 });
 				console.log("Product added to cart: " + product.name);
 			}

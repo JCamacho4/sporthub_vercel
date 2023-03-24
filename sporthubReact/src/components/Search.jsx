@@ -45,10 +45,10 @@ const gridView = (list, ROW_SIZE) => {
 						return (
 							<div onClick={() =>  openProduct(p)} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2" key={p.id}>
 								<div className="card h-100 text-center productCard">
-									<img src={p.photo} alt="photo" className="card-img-top" />
+									<img src={p.photo} alt="photo" className="card-img-top h-100" />
 									<div className="card-body">
 										<h5 className="card-title">{p.name}</h5>
-										<p className="card-text">{p.price + "€"}</p>
+										<h5 className="card-title">{p.price + "€"}</h5>
 									</div>
 								</div>
 							</div>
