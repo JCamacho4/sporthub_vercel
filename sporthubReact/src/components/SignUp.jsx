@@ -52,6 +52,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
         <div className="form-value">
           <form onSubmit={signUpEvent}>
             <h2>Sign Up</h2>
+            <p> Register here to be part of SportHub !</p>
 
             <div className="inputbox formInputbox">
             	<ion-icon name="person-outline"></ion-icon>

@@ -40,31 +40,33 @@ export default function Login({ userLogged, setUserLogged }) {
 
   return (
     <section id="formSection">
-      <div className="form-box formBox">
+      <div className="form-box formBox" id="login">
         <div className="form-value">
           <form onSubmit={loginEvent}>
-            <h2>Login</h2>
+            <h2>Log in</h2>
+            <p> Introduce your credentials to log in</p>
+
             <div className="inputbox formInputbox">
-            	<ion-icon name="person-outline"></ion-icon>
+              <ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
                 className="form-control"
                 onChange={(event) => setUsernameInput(event.target.value)}
-              />
-              <label>Username</label>
+                />
+                <label>Username</label>
             </div>
-              
+
             <div className="inputbox formInputbox">
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"
                 className="form-control"
                 onChange={(event) => setPasswordInput(event.target.value)}
-              />
-              <label>Password</label>
+                />
+                <label>Password</label>
             </div>
             <button id="button"
-              type="login" 
+              type="login"
               className="btn btn-primary mb-2"
             >
               Log in
