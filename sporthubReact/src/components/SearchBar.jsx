@@ -8,11 +8,9 @@ export default function SearchBar({ lastQuery, lastCategory }) {
 		const query = document.getElementById("searchBar").value;
 		const category = document.getElementById("categories").value;
 
-		if (query !== "") {
-			let url = "/search?c=" + category;
-			if (query !== "") url += "&q=" + query;
-			navigate(url);
-		}
+		let url = "/search?c=" + category;
+		if (query !== "") url += "&q=" + query;
+		navigate(url);
 	};
 
 	const onEnter = (e) => {
