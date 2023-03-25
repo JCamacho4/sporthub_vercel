@@ -66,19 +66,19 @@ export default function Cart({ userLogged, cart, setCart }) {
 										</div>
 										<div className="col-3">
 											<button
-												onClick={() => addOneToCart(product.prod.id)}
-												className="addButton px-1"
+												onClick={() => removeOneFromCart(product.prod.id)}
+												className="removeButton px-1"
 											>
-												<ion-icon name="add-circle-outline"></ion-icon>
+												<ion-icon name="remove-circle-outline"></ion-icon>
 											</button>
 
 											<span className="px-1">Quantity: {product.quantity}</span>
 
 											<button
-												onClick={() => removeOneFromCart(product.prod.id)}
-												className="removeButton px-1"
+												onClick={() => addOneToCart(product.prod.id)}
+												className="addButton px-1"
 											>
-												<ion-icon name="remove-circle-outline"></ion-icon>
+												<ion-icon name="add-circle-outline"></ion-icon>
 											</button>
 
 											<button
@@ -98,7 +98,7 @@ export default function Cart({ userLogged, cart, setCart }) {
 						);
 					})}
 
-					<div className="card">
+					<div className="card totalCard">
 						<div className="card-body text-center">
 							<div className="row align-items-center">
 								<div className="col-3"></div>

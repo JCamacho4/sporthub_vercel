@@ -10,3 +10,7 @@
 .addButton:hover, .removeButton:hover {
 	background: #ffc251;
 }
+
+.totalCard {
+	background: #ffa500;
+}
