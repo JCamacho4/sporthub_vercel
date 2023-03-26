@@ -1,0 +1,34 @@
+.tittle-subtittle {
+    text-align: center;
+}
+
+.section-input {
+    color: #ffa500;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-submit {
+    width: 160px;
+    height: 40px;
+    border-radius: 40px;
+    background: #ffa500;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.button-submit:hover {
+    background-color: #ffa600ad;
+    transition: 0.2s;
+}
+
+#confirm-submit-div {
+    align-items: center;
+}

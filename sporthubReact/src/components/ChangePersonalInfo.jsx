@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../assets/styles/profile.css"
+import "../assets/styles/changePersonalInfo.css"
 
-export default function Profile({ userLogged, setUserLogged }) {
+export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
 
     let params = useParams();
     let username = params.username;
@@ -14,79 +14,99 @@ export default function Profile({ userLogged, setUserLogged }) {
     }, []);
 
     return (
-        <div class="container mt-3">
+        <>
             <form>
-                <div class="row jumbotron box8">
-                    <div class="col-sm-12 mx-t3 mb-4">
+                <div className="row jumbotron box8">
+                    <div className="tittle-subtittle">
                         <h2>Change your personal info</h2>
                         <p> Hello {username}, here you can change your personal info</p>
                     </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="name-f">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="name-l">Last name</label>
-                        <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="address-1">Address Line-1</label>
-                        <input type="address" class="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="address-2">Address Line-2</label>
-                        <input type="address" class="form-control" name="address" id="address-2" placeholder="Village/City Name." />
-                    </div>
-                    <div class="col-sm-4 form-group">
-                        <label for="State">State</label>
-                        <input type="address" class="form-control" name="State" id="State" placeholder="Enter your state name." />
-                    </div>
-                    <div class="col-sm-2 form-group">
-                        <label for="zip">Postal-Code</label>
-                        <input type="zip" class="form-control" name="Zip" id="zip" placeholder="Postal-Code." />
-                    </div>
-                    
-                
-                    <div class="col-sm-6 form-group">
-                        <label for="Date">Date Of Birth</label>
-                        <input type="Date" name="dob" class="form-control" id="Date" placeholder="" />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="sex">Gender</label>
-                        <select id="sex" class="form-control browser-default custom-select">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="unspesified">Unspecified</option>
-                        </select>
-                    </div>
-                   
-                    <div class="col-sm-4 form-group">
-                        <label for="tel">Phone</label>
-                        <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="pass">Password</label>
-                        <input type="Password" name="password" class="form-control" id="pass" placeholder="Enter your password." />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="pass2">Confirm Password</label>
-                        <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password." />
-                    </div>
-                    <div class="col-sm-12">
-                        <input type="checkbox" class="form-check d-inline" id="chb" /><label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.
-                        </label>
+
+
+                    <div className="card row mt-3 mb-2 p-3" >
+                        <h3 className="section-input"> Personal Information</h3>
+                        <div className="input-field">
+                            <label htmlFor="name-f">First Name</label>
+                            <input type="text" className="form-control input-formulario" name="fname" id="name-f" />
+
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="name-l">Last name</label>
+                            <input type="text" className="form-control input-formulario" name="lname" id="name-l" />
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" className="form-control input-formulario" name="email" id="email" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="tel">Phone</label>
+                            <input type="tel" name="phone" className="form-control input-formulario" id="tel" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="Date">Date Of Birth</label>
+                            <input type="Date" name="dob" className="form-control input-formulario" id="Date" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="sex">Gender</label>
+                            <select id="sex" className="form-control browser-default custom-select">
+                                <option value="unspesified">Unspecified</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </div>
+
                     </div>
 
-                    <div class="col-sm-12 form-group mb-0">
-                        <button class="btn btn-primary float-right">Submit</button>
+                    <div className="card row mt-3 mb-3 p-3">
+                        <h3 className="section-input"> Location Information</h3>
+                        <div className="input-field">
+
+                            <label htmlFor="address-1">Address Line-1</label>
+                            <input type="address" className="form-control input-formulario" name="Locality" id="address-1" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="address-2">Address Line-2</label>
+                            <input type="address" className="form-control input-formulario" name="address" id="address-2" />
+
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="State">Contry</label>
+                            <input type="address" className="form-control input-formulario" name="State" id="State" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="zip">Postal-Code</label>
+                            <input type="zip" className="form-control input-formulario" name="Zip" id="zip" />
+                        </div>
+                    </div>
+
+                    <div className="card row mt-3 mb-3 p-3" id="confirm-submit-div">
+
+                        <h3 className="section-input"> Confirm your changes</h3>
+
+
+                        <div className="input-field">
+                            <label htmlFor="pass">Password</label>
+                            <input type="Password" name="password" className="form-control" id="pass" />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="pass2">Confirm Password</label>
+                            <input type="Password" name="cnf-password" className="form-control" id="pass2" />
+                        </div>
+
+                        <br/>
+
+                        <button className="button-submit">Submit changes</button>
                     </div>
 
                 </div>
             </form>
-        </div>
+        </>
     );
 }
