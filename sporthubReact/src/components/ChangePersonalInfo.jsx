@@ -16,14 +16,14 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
     return (
         <>
             <form>
-                <div className="row jumbotron box8">
+                <div className="row ">
                     <div className="tittle-subtittle">
                         <h2>Change your personal info</h2>
                         <p> Hello {username}, here you can change your personal info</p>
                     </div>
 
 
-                    <div className="card row mt-3 mb-2 p-3" >
+                    <div className="card row mt-3 mb-2 p-3 div-input-group" >
                         <h3 className="section-input"> Personal Information</h3>
                         <div className="input-field">
                             <label htmlFor="name-f">First Name</label>
@@ -60,7 +60,7 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
 
                     </div>
 
-                    <div className="card row mt-3 mb-3 p-3">
+                    <div className="card row mt-3 mb-3 p-3 div-input-group">
                         <h3 className="section-input"> Location Information</h3>
                         <div className="input-field">
 
@@ -85,9 +85,10 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
                         </div>
                     </div>
 
-                    <div className="card row mt-3 mb-3 p-3" id="confirm-submit-div">
+                    <div className="card row mt-3 mb-3 p-3 div-input-group">
 
                         <h3 className="section-input"> Confirm your changes</h3>
+                        <p id="extra-info"> We need you to introduce your password to confirm your changes </p>
 
 
                         <div className="input-field">
