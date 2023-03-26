@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../assets/styles/profile.css"
 
-export default function Profile({ userLogged, setUserLogged }) {
-
+export default function Profile({ userLogged, setUserLogged }) {    
     let params = useParams();
     let username = params.username;
 
@@ -20,14 +19,15 @@ export default function Profile({ userLogged, setUserLogged }) {
                     <img src="https://telematicanet.ucol.mx/egresados/assets/images/la-imagen-del-usuario-con-el-fondo-negro-626x626.jpg" alt="error"/>
                 </div>
                 <div className="content profileCardContent">
-                    <h2>Pepe</h2>
-                    <p><strong>@</strong>{username}</p>
-                    <button className="button">Change Personal Info</button> 
+                    <h2>username</h2>
+                    <p><strong>@{username}</strong></p>
+                    <button onClick={() => navigate("/profile/" + username + "/change-personal-info")} className="button"> Change Personal Info </button> 
                 </div>                 
             </div>  
         </section>
 
-    );
+
+    );  
 
     /*<div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
                 <div className="card p-4">

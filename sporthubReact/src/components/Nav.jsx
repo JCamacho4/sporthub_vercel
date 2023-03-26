@@ -34,11 +34,10 @@ export default function Nav({ userLogged, setUserLogged, cart }) {
   const helloUserAndLogout = () => {
     return (
       <>
-        <li className="nav-item">
-          <Link className="nav-link" to={"/cart"}>
-            <button className="button2">{cartItems()}
+        <li className="nav-item item-cart">
+          <Link className="nav-link button-link" to={"/cart"}>
+            {cartItems()}
             <ion-icon name="cart" id="icono"></ion-icon>
-            </button>
           </Link>
         </li>
         <li className="nav-item item-user-profile">

@@ -7,21 +7,7 @@
 }
 
 
-#menuBtn {
-  background-color: #ffa500;
-  position: relative;
-  border: none;
-  color: #000;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 25px;
-  text-align: center;
-  display: inline-block;
-  line-height: 50px;
-  text-align: center;
-  height: 50px;
-  width: calc(100% + 20px);
-}
+
 
 .menuUser a:hover {
   background: #ffa500;
@@ -45,6 +31,47 @@
 	background-color: #ffa600ad;
 	transition: 0.2s;
 }
+
+#menuBtn {
+  background-color: #ffa500;
+  position: relative;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  text-align: center;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+  height: 50px;
+  width: calc(100% + 20px);
+}
+
+.button-link {
+  background-color: #ffa500;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  border-radius: 25px;
+  text-align: center;
+  height: 50px;
+  width: calc(100% + 10px);
+  height: 50px;
+  line-height: 30px;
+}
+
+.button-link:hover {
+	background-color: #ffa600ad;
+	transition: 0.2s;
+}
+
+.item-cart{
+  margin-right: 50px;
+  padding-right: 30px;
+}
+
+
 
 #icono2, #icono {
   margin-left: 7px;

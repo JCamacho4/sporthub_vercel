@@ -12,6 +12,7 @@ import Categories from "./components/Categories";
 import Search from "./components/Search";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
+import ChangePersonalInfo from "./components/ChangePersonalInfo";
 
 function App() {
 	const [userLogged, setUserLogged] = useState(null);
@@ -125,22 +126,13 @@ function App() {
 						<Route path="/about-us" element={<AboutUs />} />
 						<Route
 							path="/login"
-							element={
-								<Login userLogged={userLogged} setUserLogged={setUserLogged} />
-							}
-						></Route>
+							element={<Login userLogged={userLogged} setUserLogged={setUserLogged} />} />
 						<Route
 							path="/signup"
-							element={
-								<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
-							}
-						>
-							{" "}
-						</Route>
+							element={<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />} />
 						<Route
 							path="/profile/:username"
 							element={<Profile userLogged={userLogged} setUserLogged={setUserLogged} />} />
-
 						<Route
 							path="/categories"
 							element={<Categories />} />
@@ -152,12 +144,15 @@ function App() {
 							path="/search"
 							element={<Search userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} />} />
 						<Route
-							// cambiar nombre a id cuando este
 							path="/product/:productId"
 							element={<Product userLogged={userLogged} setUserLogged={setUserLogged} productList={productList} addToCart={addToCart} />} />
 						<Route
 							path="/cart"
 							element={<Cart userLogged={userLogged} cart={cart} setCart={setCart} />} />
+						<Route
+							path="/profile/:username/change-personal-info"
+							element={<ChangePersonalInfo userLogged={userLogged} setUserLogged={setUserLogged} />} />
+							
 					</Routes>
 				</div>
 			</BrowserRouter>
