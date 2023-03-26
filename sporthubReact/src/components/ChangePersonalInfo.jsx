@@ -51,7 +51,7 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
 
                         <div className="input-field">
                             <label htmlFor="sex">Gender</label>
-                            <select id="sex" className="form-control browser-default custom-select">
+                            <select id="sex" className="form-control browser-default custom-select input-formulario" >
                                 <option value="unspesified">Unspecified</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
@@ -93,12 +93,12 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
 
                         <div className="input-field">
                             <label htmlFor="pass">Password</label>
-                            <input type="Password" name="password" className="form-control" id="pass" />
+                            <input type="Password" name="password" className="form-control input-formulario" id="pass" />
                         </div>
 
                         <div className="input-field">
                             <label htmlFor="pass2">Confirm Password</label>
-                            <input type="Password" name="cnf-password" className="form-control" id="pass2" />
+                            <input type="Password" name="cnf-password" className="form-control input-formulario" id="pass2" />
                         </div>
 
                         <br/>

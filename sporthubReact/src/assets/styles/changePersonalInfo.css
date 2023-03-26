@@ -42,3 +42,12 @@
 #extra-info{
     color: #be982f;
 }
+
+.input-formulario{
+	border-color: black;
+}
+
+.input-formulario:focus { 
+	box-shadow: 0px 0px 10px -2px #ffa500;
+	outline-width: 0px;
+}
