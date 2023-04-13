@@ -6,6 +6,8 @@ import "../assets/styles/forms.css"
 export default function SignUp({ userLogged, setUserLogged }) {
   const [usernameInput, setUsernameInput] = useState("");
   const [nameInput, setNameInput] = useState("");
+  const [lastNameInput, setLastNameInput] = useState("");
+  const [dateInput, setDateInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
         password: passwordInput,
         name: nameInput,
         email: emailInput,
+        lastName: lastNameInput,
       })
       .then((response) => {
         const user = { username: usernameInput };
@@ -75,6 +78,27 @@ export default function SignUp({ userLogged, setUserLogged }) {
             </div>
 
             <div className="inputbox formInputbox">
+              <ion-icon name="people-circle-outline"></ion-icon>
+              <input id="lname"
+                type="text"
+                className="form-control"
+                onChange={(event) => setLastNameInput(event.target.value)}
+              />
+              <label>Last Name</label>
+            </div>
+
+            <div className="inputbox formInputbox">
+            {/*
+            <input type="text" id="fecha" className="form-control" placeholder="dd/mm/yyyy"></input>
+          */}
+              <input id="date"
+                type="date"
+                className="form-control"
+                onChange={(event) => setDateInput (event.target.value)}
+              />
+            </div>
+
+            <div className="inputbox formInputbox">
               <ion-icon name="mail-outline"></ion-icon>
               <input id="email"
                 type="email"
@@ -93,6 +117,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               />
               <label>Password</label>
             </div>
+
             <button id="button"
               type="submit" 
               className="btn btn-primary mb-2"
