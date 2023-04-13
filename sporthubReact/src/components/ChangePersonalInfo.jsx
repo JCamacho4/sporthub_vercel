@@ -16,51 +16,46 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
     return (
         <>
             <form>
-                <div className="row ">
-                    <div className="tittle-subtittle">
-                        <h2>Change your personal info</h2>
-                        <p> Hello {username}, here you can change your personal info</p>
-                    </div>
-
-
-                    <div className="card row mt-3 mb-2 p-3 div-input-group" >
+                <div className="tittle-subtittle">
+                    <h2>Change your personal info</h2>
+                    <p> Hello {username}, here you can change your personal info</p>
+                </div>
+                <div className="row align-items-start project-div">
+                    <div className="col project-section">
                         <h3 className="section-input"> Personal Information</h3>
                         <div className="input-field">
-                            <label htmlFor="name-f">First Name</label>
-                            <input type="text" className="form-control input-formulario" name="fname" id="name-f" />
-
+                            <label htmlFor="name-f" >First Name</label>
+                            <input type="text" maxLength={40} className="form-control input-formulario" name="fname" id="name-f" />
                         </div>
                         <div className="input-field">
                             <label htmlFor="name-l">Last name</label>
-                            <input type="text" className="form-control input-formulario" name="lname" id="name-l" />
+                            <input type="text" maxLength={40} className="form-control input-formulario" name="lname" id="name-l" />
                         </div>
                         <div className="input-field">
                             <label htmlFor="email">Email</label>
-                            <input type="email" className="form-control input-formulario" name="email" id="email" />
+                            <input type="email" maxLength={60} className="form-control input-formulario" name="email" id="email" />
                         </div>
 
                         <div className="input-field">
                             <label htmlFor="tel">Phone</label>
-                            <input type="tel" name="phone" className="form-control input-formulario" id="tel" />
+                            <input type="tel" style={{width: "60%",}} name="phone" className="form-control input-formulario" id="tel" />
                         </div>
 
                         <div className="input-field">
                             <label htmlFor="Date">Date Of Birth</label>
-                            <input type="Date" name="dob" className="form-control input-formulario" id="Date" />
+                            <input type="Date" style={{width: "35%",}} name="dob" className="form-control input-formulario" id="Date" />
                         </div>
 
                         <div className="input-field">
                             <label htmlFor="sex">Gender</label>
-                            <select id="sex" className="form-control browser-default custom-select input-formulario" >
+                            <select style={{width: "30%",}} id="sex" className="form-control browser-default custom-select input-formulario" >
                                 <option value="unspesified">Unspecified</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
                             </select>
                         </div>
-
                     </div>
-
-                    <div className="card row mt-3 mb-3 p-3 div-input-group">
+                    <div className="col project-section">
                         <h3 className="section-input"> Location Information</h3>
                         <div className="input-field">
 
@@ -75,7 +70,7 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
                         </div>
 
                         <div className="input-field">
-                            <label htmlFor="State">Contry</label>
+                            <label htmlFor="State">Country</label>
                             <input type="address" className="form-control input-formulario" name="State" id="State" />
                         </div>
 
@@ -85,27 +80,28 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
                         </div>
                     </div>
 
-                    <div className="card row mt-3 mb-3 p-3 div-input-group">
+                    <div className="row">
+                        <div className="col project-section d-flex justify-content-cente">
+                            <div style={{width: "50%",}}>
+                                <h3 className="section-input"> Confirm your changes</h3>
+                                <p id="extra-info"> We need you to introduce your password to confirm your changes </p>
 
-                        <h3 className="section-input"> Confirm your changes</h3>
-                        <p id="extra-info"> We need you to introduce your password to confirm your changes </p>
 
+                                <div className="input-field">
+                                    <label htmlFor="pass">Password</label>
+                                    <input type="Password" name="password" className="form-control input-formulario" id="pass" />
+                                </div>
 
-                        <div className="input-field">
-                            <label htmlFor="pass">Password</label>
-                            <input type="Password" name="password" className="form-control input-formulario" id="pass" />
+                                <div className="input-field">
+                                    <label htmlFor="pass2">Confirm Password</label>
+                                    <input type="Password" name="cnf-password" className="form-control input-formulario" id="pass2" />
+                                </div>
+
+                                <br />
+                                <button className="button-submit">Submit changes</button>
+                            </div>
                         </div>
-
-                        <div className="input-field">
-                            <label htmlFor="pass2">Confirm Password</label>
-                            <input type="Password" name="cnf-password" className="form-control input-formulario" id="pass2" />
-                        </div>
-
-                        <br/>
-
-                        <button className="button-submit">Submit changes</button>
                     </div>
-
                 </div>
             </form>
         </>

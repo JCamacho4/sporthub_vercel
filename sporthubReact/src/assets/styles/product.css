@@ -3,3 +3,21 @@
     margin: 0 auto;
     text-align: center;
   }
+
+.boton-producto{
+    background-color: #ffa500;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 25px;
+    text-align: center;
+    height: 50px;
+    width: calc(20%);
+    height: 50px;
+    line-height: 30px;
+  }
+
+  .boton-producto:hover{
+    background-color: #ffa600ad;
+    transition: 0.2s;
+  }
