@@ -12,7 +12,7 @@ const filter = (list, category, query) => {
 		if (category === "all" || product.category === category) {
 			if (!query) {
 				filteredList.push(product);
-			} else if (product.name.toLowerCase().replaceAll(" ","").includes(query)) {
+			} else if (product.name.toLowerCase().replaceAll(" ","").includes(query.toLowerCase())) {
 				filteredList.push(product);
 			}
 		}
