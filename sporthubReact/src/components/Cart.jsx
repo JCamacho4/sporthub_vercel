@@ -54,9 +54,9 @@ export default function Cart({ userLogged, cart, setCart }) {
 							<div class="card mb-2">
 								<div class="card-body text-center">
 									<div className="row align-items-center">
-										<div className="col-3">
+										<div className="col-2">
 											<img
-												style={{ maxWidth: "30%", height: "auto" }}
+												style={{ maxWidth: "70%", height: "auto" }}
 												src={product.prod.photo}
 												alt="photo"
 											/>
@@ -64,33 +64,36 @@ export default function Cart({ userLogged, cart, setCart }) {
 										<div className="col-3">
 											<h5 class="card-title">{product.prod.name}</h5>
 										</div>
-										<div className="col-3">
+										<div className="col-1">
 											<button
 												onClick={() => removeOneFromCart(product.prod.id)}
 												className="removeButton px-1"
 											>
 												<ion-icon name="remove-circle-outline"></ion-icon>
 											</button>
-
+										</div>
+										<div className="col-2">
 											<span className="px-1">Quantity: {product.quantity}</span>
-
+										</div>
+										<div className="col-1">
 											<button
 												onClick={() => addOneToCart(product.prod.id)}
 												className="addButton px-1"
 											>
 												<ion-icon name="add-circle-outline"></ion-icon>
 											</button>
-
+										</div>
+										<div className="col-2">
+											<p>Price: {product.prod.price}€</p>
+											<h5>Subtotal: {product.prod.price * product.quantity}€</h5>
+										</div>
+										<div className="col-1">
 											<button
 												onClick={() => removeFromCart(product.prod.id)}
-												className="removeButton mx-1"
+												className="removeAllButton mx-1"
 											>
 												<ion-icon name="trash-bin-outline"></ion-icon>
 											</button>
-										</div>
-										<div className="col-3">
-											<p>Price: {product.prod.price}€</p>
-											<h5>Subtotal: {product.prod.price * product.quantity}€</h5>
 										</div>
 									</div>
 								</div>
