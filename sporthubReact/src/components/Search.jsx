@@ -61,15 +61,30 @@ const gridView = (list, ROW_SIZE) => {
 	return res;
 };
 
+const getSeachQuote = (query, category) => {
+	if (query === null) {
+		if( category === "all") {
+			return "all products in store";
+		} else {
+			return "all products in " + category;
+		}
+	} else {
+		return query + " in " + category;
+	}
+}
+
 	useEffect(() => {
 		setFilteredList(filter(productList, category, query));
 	}, [category,query]);
 
+	const specificSearch = query + " in " + category;
+
 	return (
 		<div>
 			<SearchBar lastQuery={query} lastCategory={category} />
+			
 
-			<h5 className="mb-3">Looking for {query !== null ? query : "products "} in {category}</h5>
+			<h5 className="mb-3">Looking for {getSeachQuote(query, category)} </h5>
 
 			<div>
 				{gridView(filteredList, ROW_SIZE)}
