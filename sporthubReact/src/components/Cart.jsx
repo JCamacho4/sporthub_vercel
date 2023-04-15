@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "../assets/styles/cart.css"
 
 export default function Cart({ userLogged, cart, setCart }) {
+	const navigate = useNavigate();
+
 	const removeOneFromCart = (productId) => {
 		if (userLogged) {
 			const newCart = [...cart];
@@ -48,7 +51,7 @@ export default function Cart({ userLogged, cart, setCart }) {
 			{cart.length === 0 ? (
 				<p>Your cart is empty.</p>
 			) : (
-				<div className="container">
+				<div className="container cartContainer">
 					{cart.map((product) => {
 						return (
 							<div class="card mb-2">
@@ -115,6 +118,7 @@ export default function Cart({ userLogged, cart, setCart }) {
 							</div>
 						</div>
 					</div>
+					<button className="finishButton mt-2" onClick={() => {navigate("/purchaseFinish")}}>Finish Purchase</button>
 				</div>
 			)}
 		</div>

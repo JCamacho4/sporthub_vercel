@@ -13,6 +13,11 @@ import Search from "./components/Search";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import ChangePersonalInfo from "./components/ChangePersonalInfo";
+import AddressSelection from "./components/purchaseProcess/AddressSelection";
+import ShipmentSelection from "./components/purchaseProcess/ShipmentSelection";
+import PaymentSelection from "./components/purchaseProcess/PaymentSelection";
+import PurchaseSummary from "./components/purchaseProcess/PurchaseSummary";
+import PurchaseForm from "./components/PurchaseForm";
 
 function App() {
   const [userLogged, setUserLogged] = useState(null);
@@ -221,6 +226,52 @@ function App() {
                 />
               }
             />
+						<Route 
+							path="/purchaseProcess"
+							element={
+								<AddressSelection
+									userLogged={userLogged}
+									cart={cart}
+								/>
+							}
+						/>
+						<Route 
+							path="/purchaseProcess/1"
+							element={
+								<ShipmentSelection
+									userLogged={userLogged}
+									cart={cart}
+								/>
+							}
+						/>
+						<Route 
+							path="/purchaseProcess/2"
+							element={
+								<PaymentSelection
+									userLogged={userLogged}
+									cart={cart}
+								/>
+							}
+						/>
+						<Route 
+							path="/purchaseProcess/3"
+							element={
+								<PurchaseSummary
+									userLogged={userLogged}
+									cart={cart}
+								/>
+							}
+						/>
+						<Route 
+							path="/purchaseFinish"
+							element={
+								<PurchaseForm
+									userLogged={userLogged}
+									cart={cart}
+									setCart={setCart}
+								/>
+							}
+						/>
           </Routes>
         </div>
       </BrowserRouter>
