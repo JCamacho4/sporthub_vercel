@@ -227,42 +227,6 @@ function App() {
               }
             />
 						<Route 
-							path="/purchaseProcess"
-							element={
-								<AddressSelection
-									userLogged={userLogged}
-									cart={cart}
-								/>
-							}
-						/>
-						<Route 
-							path="/purchaseProcess/1"
-							element={
-								<ShipmentSelection
-									userLogged={userLogged}
-									cart={cart}
-								/>
-							}
-						/>
-						<Route 
-							path="/purchaseProcess/2"
-							element={
-								<PaymentSelection
-									userLogged={userLogged}
-									cart={cart}
-								/>
-							}
-						/>
-						<Route 
-							path="/purchaseProcess/3"
-							element={
-								<PurchaseSummary
-									userLogged={userLogged}
-									cart={cart}
-								/>
-							}
-						/>
-						<Route 
 							path="/purchaseFinish"
 							element={
 								<PurchaseForm
