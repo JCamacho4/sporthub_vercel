@@ -40,8 +40,9 @@ export default function ShipmentSelection({ userLogged, cart, shipment, setShipm
 				<span>Arrives on {regularDate.toLocaleDateString("en-US", formatOptions)}</span><br/>
 				<span>Totally FREE</span>
 			</div>
-			<button onClick={() => retroceder()}>Back</button>
-			<button onClick={() => avanzar()} disabled={shipment.value < 0}>Continue</button>
+			<button onClick={() => retroceder()} className="purchaseButton">Back</button>
+			<button onClick={() => avanzar()} disabled={shipment.value < 0}
+							className={"purchaseButton " + (shipment.value < 0 ? "disabledPurchaseButton" : "")}>Continue</button>
 		</div>
 	);
 }

@@ -118,7 +118,8 @@ export default function AddressSelection({ userLogged, cart, selectedAddress, se
 					/>
 				</div>
 			</div>
-			<button onClick={() => submitEvent()} disabled={selectedAddress.value < 0}>Continue</button>
+			<button onClick={() => submitEvent()} disabled={selectedAddress.value < 0}
+						className={"purchaseButton " + (selectedAddress.value < 0 ? "disabledPurchaseButton" : "")}>Continue</button>
 		</div>
 	);
 }

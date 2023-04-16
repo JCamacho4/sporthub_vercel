@@ -49,8 +49,9 @@ export default function PaymentSelection({ userLogged, cart, shipment, avanzar, 
 				</div>
 				<ProductList cart={cart} shipment={shipment} />
 			</div>
-			<button onClick={() => retroceder()}>Back</button>
-			<button onClick={() => avanzar()} disabled={isUncompleted()}>Continue</button>
+			<button onClick={() => retroceder()} className="purchaseButton">Back</button>
+			<button onClick={() => avanzar()} disabled={isUncompleted()}
+							className={"purchaseButton " + (isUncompleted() ? "disabledPurchaseButton" : "")}>Continue</button>
 		</div>
 	);
 }

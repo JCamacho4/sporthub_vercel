@@ -5,6 +5,7 @@ import PaymentSelection from "./purchaseProcess/PaymentSelection";
 import ShipmentSelection from "./purchaseProcess/ShipmentSelection";
 import PurchaseSummary from "./purchaseProcess/PurchaseSummary";
 import axios from "axios";
+import "../assets/styles/purchase.css"
 
 export default function PurchaseForm({ userLogged, cart, setCart }) {
 	const navigate = useNavigate();
@@ -50,7 +51,6 @@ export default function PurchaseForm({ userLogged, cart, setCart }) {
 
 	return (
 		<div className="container">
-			<h2>Barra de progreso</h2>
 			{ pages[purchaseState] }
 		</div>
 	);

@@ -43,6 +43,7 @@ export default function PurchaseSummary({ userLogged, cart, setCart, selectedAdd
 				</div>
 				<ProductList cart={oldCart} shipment={shipment} />
 			</div>
+			<button className="purchaseButton longButton" onClick={() => navigate("/")}>Back to main page</button>
 		</div>
 	);
 }
