@@ -56,15 +56,26 @@ h2{
     color: #be982f;
 }
 
+input#username.activo ~ label{
+    left: 200px;
+}
+
 input#username:focus ~ label{
     left: 200px;
     color: #b7b7b7;
 }
 
+input#password.activo ~ label{
+    left: 200px;
+}
 
 input#password:focus ~ label{
     left: 205px;
     color: #b7b7b7;
+}
+
+input#email.activo ~ label{
+    left: 200px;
 }
 
 input#email:focus ~ label{
@@ -88,6 +99,10 @@ input#lname.activo ~ label{
 input#lname:focus ~ label{
     left: 200px;
     color: #b7b7b7;
+}
+
+input#fecha.activo ~ label{
+    left: 200px;
 }
 
 input#fecha:focus ~ label{

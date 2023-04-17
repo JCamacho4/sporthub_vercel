@@ -124,7 +124,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
 
             <div className="inputbox formInputbox">
             <ion-icon name="calendar-outline"></ion-icon>
-            <input type="text" maxLength={10} id="fecha" className="form-control"
+            <input type="text" maxLength={10} id="fecha" className={dateInput!=="" ? "activo form-control" : "form-control"}
             value={dateInput} onChange={handleDateInputChange} onClick={handleDateInputClick}/>
             <label>dd/mm/yyyy Birth Date</label>
             </div>
