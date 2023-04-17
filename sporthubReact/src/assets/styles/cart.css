@@ -22,3 +22,21 @@
 .totalCard {
 	background: #ffa500;
 }
+
+.finishButton {
+	width: 25%;
+	padding: 10px;
+	border-radius: 20px;
+	border: none;
+	background: #ffa500;
+	color: #000;
+	font-weight: 600;
+}
+
+.finishButton:hover {
+	background: #ffc251;
+}
+
+.cartContainer {
+	text-align: center;
+}
