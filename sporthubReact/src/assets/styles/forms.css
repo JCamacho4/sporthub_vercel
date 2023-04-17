@@ -61,6 +61,7 @@ input#username:focus ~ label{
     color: #b7b7b7;
 }
 
+
 input#password:focus ~ label{
     left: 205px;
     color: #b7b7b7;
@@ -77,7 +78,12 @@ input#name:focus ~ label{
 }
 
 input#lname:focus ~ label{
-    left: 230px;
+    left: 200px;
+    color: #b7b7b7;
+}
+
+input#fecha:focus ~ label{
+    left: 190px;
     color: #b7b7b7;
 }
 

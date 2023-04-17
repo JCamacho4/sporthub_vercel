@@ -14,18 +14,20 @@ export default function SignUp({ userLogged, setUserLogged }) {
 
   const signUpEvent = (e) => {
     e.preventDefault();
-    // Here we will send the username and password to the backend
-    // and check if the user is registered
-    // If the user is registered, we will display an error message
-    // If the user is not registered, we will register the user and redirect to the home page
 
-    axios
+    const [dia, mes, anio] = dateInput.split("/");
+    if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900 || anio > 2023) {
+      alert("La fecha debe seguir el formato dd/mm/yyyy");
+    } else {
+      let dateSend = (anio + "-" + mes + "-" + dia);
+      axios
       .post("http://localhost:8080/newUser/", {
         username: usernameInput,
         password: passwordInput,
         name: nameInput,
         email: emailInput,
         lastName: lastNameInput,
+        date: dateSend,
       })
       .then((response) => {
         const user = { username: usernameInput };
@@ -41,6 +43,39 @@ export default function SignUp({ userLogged, setUserLogged }) {
           alert("There was a problem when creating the new user.");
         }
       });
+    }
+    
+
+  };
+
+  const handleDateInputChange = (event) => {
+    let value = event.target.value; 
+    if(value.length === 2){
+      if(dateInput.length === 1){
+        value += '/';
+      }
+    }else if(value.length === 5){
+      if(dateInput.length === 4){
+        value += '/';
+      }
+    }else if(value.length === 11){
+      value = dateInput;
+    }
+    setDateInput(value);
+  };
+
+  const handleDateInputClick = () => {
+    const datePicker = document.createElement('input');
+    datePicker.type = 'date';
+    datePicker.style.display = 'none';
+    document.body.appendChild(datePicker);
+
+    datePicker.addEventListener('change', () => {
+      setSelectedDate(datePicker.value);
+      document.body.removeChild(datePicker);
+    });
+
+    datePicker.click();
   };
 
   useEffect(() => {
@@ -88,14 +123,10 @@ export default function SignUp({ userLogged, setUserLogged }) {
             </div>
 
             <div className="inputbox formInputbox">
-            {/*
-            <input type="text" id="fecha" className="form-control" placeholder="dd/mm/yyyy"></input>
-          */}
-              <input id="date"
-                type="date"
-                className="form-control"
-                onChange={(event) => setDateInput (event.target.value)}
-              />
+            <ion-icon name="calendar-outline"></ion-icon>
+            <input type="text" maxLength={10} id="fecha" className="form-control"
+            value={dateInput} onChange={handleDateInputChange} onClick={handleDateInputClick}/>
+            <label>dd/mm/yyyy Birth Date</label>
             </div>
 
             <div className="inputbox formInputbox">
