@@ -32,6 +32,7 @@ export default function ChangePersonalInfo({ userLogged, setUserLogged }) {
 
     const submitEvent = (e) => {
         e.preventDefault();
+        console.log(userData.date);
         let password = document.getElementById("pass").value;
         let password_confirm = document.getElementById("pass2").value;
         if(password!==password_confirm){
