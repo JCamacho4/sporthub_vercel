@@ -10,6 +10,7 @@ export default function Product(props) {
   const [product, setProduct] = useState();
 
   let params = useParams();
+  let userLogged = props.userLogged;
   let productId = params.productId;
   let productList = props.productList;
 
@@ -33,6 +34,28 @@ export default function Product(props) {
     }
   };
 
+  const checkLogged = () =>{
+    console.log(userLogged);
+    if(userLogged){
+      MySwal.fire({
+        title: "Confirmation needed",
+        text: "Please confirm to add the product to the cart",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonText: "Confirm",
+        confirmButtonColor: "#ffa500",
+        denyButtonText: "Deny",
+      }).then(handleClick);
+    }else{
+      MySwal.fire({
+        title: "You Need to LogIn",
+        text: "In order to add the product to the cart you should LogIn with your account.",
+        icon: "warning",
+        confirmButtonColor: "#ffa500",
+      })
+    }
+  }
+
   return product !== undefined ? (
     <div className="product-div">
       <h1>{product.name}</h1>
@@ -44,17 +67,7 @@ export default function Product(props) {
       <p>{product.description}</p>
       <button
         className="btn btn-primary"
-        onClick={() => {
-          MySwal.fire({
-            title: "Confirmation needed",
-            text: "Please confirm to add the product to the cart",
-            icon: "info",
-            showCancelButton: true,
-            confirmButtonText: "Confirm",
-            confirmButtonColor: "#ffa500",
-            denyButtonText: "Deny",
-          }).then(handleClick);
-        }}
+        onClick={checkLogged}
       >
         Add to cart
       </button>

@@ -61,7 +61,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
             	<ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
-                className="form-control"
+                className={usernameInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setUsernameInput(event.target.value)}
               />
               <label>Username</label>
@@ -71,7 +71,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <ion-icon name="id-card-outline"></ion-icon>
               <input id="name"
                 type="text"
-                className="form-control"
+                className={nameInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setNameInput(event.target.value)}
               />
               <label>Name</label>
@@ -81,7 +81,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <ion-icon name="people-circle-outline"></ion-icon>
               <input id="lname"
                 type="text"
-                className="form-control"
+                className={lastNameInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setLastNameInput(event.target.value)}
               />
               <label>Last Name</label>
@@ -102,7 +102,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <ion-icon name="mail-outline"></ion-icon>
               <input id="email"
                 type="email"
-                className="form-control"
+                className={emailInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setEmailInput(event.target.value)}
               />
               <label>Email</label>
@@ -112,7 +112,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"
-                className="form-control"
+                className={passwordInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setPasswordInput(event.target.value)}
               />
               <label>Password</label>

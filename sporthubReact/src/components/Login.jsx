@@ -50,7 +50,8 @@ export default function Login({ userLogged, setUserLogged }) {
               <ion-icon name="person-outline"></ion-icon>
               <input id="username"
                 type="username"
-                className="form-control"
+                value={usernameInput}
+                className={usernameInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setUsernameInput(event.target.value)}
                 />
                 <label>Username</label>
@@ -60,7 +61,8 @@ export default function Login({ userLogged, setUserLogged }) {
               <ion-icon name="lock-closed-outline"></ion-icon>
               <input id="password"
                 type="password"
-                className="form-control"
+                value={passwordInput}
+                className={passwordInput!=="" ? "activo form-control" : "form-control"}
                 onChange={(event) => setPasswordInput(event.target.value)}
                 />
                 <label>Password</label>

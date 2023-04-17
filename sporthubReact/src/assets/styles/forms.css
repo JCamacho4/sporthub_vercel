@@ -71,9 +71,17 @@ input#email:focus ~ label{
     color: #b7b7b7;
 }
 
+input#name.activo ~ label{
+    left: 200px;
+}
+
 input#name:focus ~ label{
     left: 230px;
     color: #b7b7b7;
+}
+
+input#lname.activo ~ label{
+    left: 200px;
 }
 
 input#lname:focus ~ label{
