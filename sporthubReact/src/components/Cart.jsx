@@ -112,7 +112,7 @@ export default function Cart({ userLogged, cart, setCart }) {
                     <div className="col-1">
                       <button
                         onClick={() => {
-                          /* MySwal.fire({
+                          MySwal.fire({
                             title: "Confirmation needed",
                             text: "Do you really want to remove the product from the cart?",
                             icon: "info",
@@ -121,9 +121,8 @@ export default function Cart({ userLogged, cart, setCart }) {
                             confirmButtonColor: "#ffa500",
                             denyButtonText: "Deny",
                           }).then((result) => {
-                            handleClick(result, product.prod.price);
-                          }); */
-                          removeFromCart(product.prod.id);
+                            handleClick(result, product.prod.id);
+                          });
                         }}
                         className="removeAllButton mx-1"
                       >
