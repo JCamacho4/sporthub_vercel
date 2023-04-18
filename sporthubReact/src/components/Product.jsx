@@ -22,9 +22,9 @@ export default function Product(props) {
     });
   }, []);
 
-  const handleClick = (result) => {
+  const handleClick = (result, func) => {
     if (result.isConfirmed) {
-      props.addToCart(product);
+      func(product);
       MySwal.fire({
         title: "Success",
         text: "The product has been added to the cart",
@@ -34,22 +34,21 @@ export default function Product(props) {
     }
   };
 
-  const checkLogged = () =>{
-    console.log(userLogged);
+  const checkLogged = (n) =>{
     if(userLogged){
       MySwal.fire({
         title: "Confirmation needed",
-        text: "Please confirm to add the product to the cart",
+        text: "Please confirm to add the product to the " + (n == 0 ? "cart" : "wishlist"),
         icon: "info",
         showCancelButton: true,
         confirmButtonText: "Confirm",
         confirmButtonColor: "#ffa500",
         denyButtonText: "Deny",
-      }).then(handleClick);
+      }).then((res) => handleClick(res, n == 0 ? props.addToCart : props.addToWishlist));
     }else{
       MySwal.fire({
         title: "You Need to LogIn",
-        text: "In order to add the product to the cart you should LogIn with your account.",
+        text: "In order to add the product to the " + (n == 0 ? "cart" : "wishlist") + " you should LogIn with your account.",
         icon: "warning",
         confirmButtonColor: "#ffa500",
       })
@@ -72,11 +71,11 @@ export default function Product(props) {
 	        <p>Price: {product.price}€</p>
         <button id="cart"
           className="btn btn-primary"
-          onClick={checkLogged}
+          onClick={() => checkLogged(0)}
         >
           Add to cart
         </button>
-					<button id="wishlist" className="btn btn-primary" onClick={() => props.addToWishlist(product)}>Add to wishlist</button>
+					<button id="wishlist" className="btn btn-primary" onClick={() => checkLogged(1)}>Add to wishlist</button>
 				</div>
       </div>
     </div>

@@ -17,234 +17,255 @@ import PurchaseForm from "./components/PurchaseForm";
 import Wishlist from "./components/Wishlist.jsx";
 
 function App() {
-  const [userLogged, setUserLogged] = useState(null);
-  const [cart, setCart] = useState([]);
+	const [userLogged, setUserLogged] = useState(null);
+	const [cart, setCart] = useState([]);
 	const [wishlist, setWishlist] = useState([]);
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      axios
-        .post("http://localhost:8080/userByToken", {
-          token: localStorage.getItem("user"),
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            setUserLogged(response.data);
-          }
-        })
-        .catch((error) => {});
-    }
-  }, []);
+	useEffect(() => {
+		if (localStorage.getItem("user")) {
+			axios
+				.post("http://localhost:8080/userByToken", {
+					token: localStorage.getItem("user"),
+				})
+				.then((response) => {
+					if (response.status === 200) {
+						setUserLogged(response.data);
+					}
+				})
+				.catch((error) => { });
+		}
+	}, []);
 
-  const addToCart = (product) => {
-    if (userLogged) {
-      //		axios.post("http://localhost:8080/addToCart", {
-      //				userId: userLogged.id,
-      //				productId: product.id,
-      //			});
-      const updatedCart = cart.map((item) => {
-        if (item.prod.id === product.id) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      });
+	useEffect(() => {
+		if(userLogged){
+			axios.post("http://localhost:8080/getWishlist", {
+				username: userLogged.username
+			})
+			.then((res) => {
+				if(res.status == 500){
 
-      if (!updatedCart.some((item) => item.prod.id === product.id)) {
-        updatedCart.push({ prod: product, quantity: 1 });
-        console.log("Product added to cart: " + product.name);
-      }
+				}else if(res.status == 200){
+					const newWishlist = [];
+					res.data.forEach((p) => {
+						newWishlist.push(productList.find(pr => pr.id == p.product));
+					});
+					setWishlist(newWishlist);
+				}
+			})
+		}
+	}, [userLogged]);
 
-      setCart(updatedCart);
-    }
-  };
-
-	const addToWishlist = (product) => {
+	const addToCart = (product) => {
 		if (userLogged) {
-//		axios.post("http://localhost:8080/addToWishlist", {
-//				userId: userLogged.id,
-//				productId: product.id,
-//			});
-			
-			if (!wishlist.some((item) => item.id === product.id)) {
-				wishlist.push(product);
-				console.log("Product added to wishlist: " + product.name);
+			//		axios.post("http://localhost:8080/addToCart", {
+			//				userId: userLogged.id,
+			//				productId: product.id,
+			//			});
+			const updatedCart = cart.map((item) => {
+				if (item.prod.id === product.id) {
+					return { ...item, quantity: item.quantity + 1 };
+				}
+				return item;
+			});
+
+			if (!updatedCart.some((item) => item.prod.id === product.id)) {
+				updatedCart.push({ prod: product, quantity: 1 });
+				console.log("Product added to cart: " + product.name);
 			}
-			
-			setWishlist(wishlist);
+
+			setCart(updatedCart);
 		}
 	};
 
-  const removeFromCart = (product) => {
-    if (userLogged) {
-      //		axios.post("http://localhost:8080/addToCart", {
-      //				userId: userLogged.id,
-      //				productId: product.id,
-      //			});
-      const updatedCart = cart.map((item) => {
-        if (item.prod.id === product.id && item.quantity === 1) {
-          return;
-        } else if (item.prod.id === product.id) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      });
+	const addToWishlist = (product) => {
+		if (userLogged) {
+			axios.post("http://localhost:8080/addToWishlist", {
+				username: userLogged.username,
+				productId: product.id,
+			}).then((res) => {
+				if (res.status == 200) {
+					if (!wishlist.some((item) => item.id === product.id)) {
+						wishlist.push(product);
+						console.log("Product added to wishlist: " + product.name);
+					}
 
-      if (!updatedCart.some((item) => item.prod.id === product.id)) {
-        return;
-      }
+					setWishlist(wishlist);
+				}
+			});
+		}
+	};
 
-      setCart(updatedCart);
-    }
-  };
+	const removeFromCart = (product) => {
+		if (userLogged) {
+			//		axios.post("http://localhost:8080/addToCart", {
+			//				userId: userLogged.id,
+			//				productId: product.id,
+			//			});
+			const updatedCart = cart.map((item) => {
+				if (item.prod.id === product.id && item.quantity === 1) {
+					return;
+				} else if (item.prod.id === product.id) {
+					return { ...item, quantity: item.quantity - 1 };
+				}
+				return item;
+			});
 
-  const productList = [
-    {
-      id: 1,
-      name: "Brooks running shoes",
-      category: "track",
-      description: "Unused running shoes",
-      photo:
-        "https://www.brooksrunning.com/dw/image/v2/BGPF_PRD/on/demandware.static/-/Sites-brooks-master-catalog/default/dw19820951/original/110393/110393-407-l-ghost-15-mens-neutral-cushion-running-shoe.png?sw=425&sh=425&sm=fit",
-      price: 50,
-    },
-    {
-      id: 2,
-      name: "Babolat tennis racket",
-      category: "tennis",
-      description: "Babolat tennis racket",
-      photo:
-        "https://cdn11.bigcommerce.com/s-65f1mln0/images/stencil/600x600/products/3401/16541/20Pure_Aero___77651.1618612938.png?c=2",
-      price: 50,
-    },
-    {
-      id: 3,
-      name: "Wilson Basketball",
-      category: "basketball",
-      description: "",
-      photo:
-        "https://target.scene7.com/is/image/Target/GUEST_20affc7e-e0d7-4eb6-a6f3-68d13520f8be?wid=488&hei=488&fmt=pjpeg",
-      price: 20,
-    },
-    {
-      id: 4,
-      name: "Nike Football Boots",
-      category: "football",
-      description: "",
-      photo: "https://img.fruugo.com/product/0/10/238646100_max.jpg",
-      price: 90,
-    },
-    {
-      id: 5,
-      name: "Swimming Suit",
-      category: "swimming",
-      description: "",
-      photo: "https://www.sportsdirect.com/images/imgzoom/35/35346203_xxl.jpg",
-      price: 30,
-    },
-    {
-      id: 6,
-      name: "Road Bike",
-      category: "cycling",
-      description: "",
-      photo:
-        "https://www.wigglestatic.com/product-media/100375136/Brand-X-Road-Bike-Road-Bikes-Black-2017-BRNDXROADXL-0.jpg",
-      price: 200,
-    },
-    {
-      id: 7,
-      name: "Everlast Boxing Gloves",
-      category: "boxing",
-      description: "",
-      photo: "https://www.sportsdirect.com/images/imgzoom/76/76233103_xxl.jpg",
-      price: 55,
-    },
-  ];
+			if (!updatedCart.some((item) => item.prod.id === product.id)) {
+				return;
+			}
 
-  return (
-    <div>
-      <BrowserRouter>
-        <Nav
-          userLogged={userLogged}
-          setUserLogged={setUserLogged}
-          cart={cart}
-        />
-        <div className="container main-container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route
-              path="/login"
-              element={
-                <Login userLogged={userLogged} setUserLogged={setUserLogged} />
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
-              }
-            />
-            <Route
-              path="/profile/:username"
-              element={
-                <Profile
-                  userLogged={userLogged}
-                  setUserLogged={setUserLogged}
-                />
-              }
-            />
-            <Route path="/categories" element={<Categories />} />
-            <Route
-              path="/categories/:category"
-              element={
-                <Profile
-                  userLogged={userLogged}
-                  setUserLogged={setUserLogged}
-                />
-              }
-            />
+			setCart(updatedCart);
+		}
+	};
 
-            <Route
-              path="/search"
-              element={
-                <Search
-                  userLogged={userLogged}
-                  setUserLogged={setUserLogged}
-                  productList={productList}
-                />
-              }
-            />
-            <Route
-              path="/product/:productId"
-              element={
-                <Product
-                  userLogged={userLogged}
-                  setUserLogged={setUserLogged}
-                  productList={productList}
-                  addToCart={addToCart}
-                  addToWishlist={addToWishlist}
-                />
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <Cart userLogged={userLogged} cart={cart} setCart={setCart} />
-              }
-            />
-            <Route
-              path="/profile/:username/change-personal-info"
-              element={
-                <ChangePersonalInfo
-                  userLogged={userLogged}
-                  setUserLogged={setUserLogged}
-                />
-              }
-            />
-						<Route 
+	const productList = [
+		{
+			id: 1,
+			name: "Brooks running shoes",
+			category: "track",
+			description: "Unused running shoes",
+			photo:
+				"https://www.brooksrunning.com/dw/image/v2/BGPF_PRD/on/demandware.static/-/Sites-brooks-master-catalog/default/dw19820951/original/110393/110393-407-l-ghost-15-mens-neutral-cushion-running-shoe.png?sw=425&sh=425&sm=fit",
+			price: 50,
+		},
+		{
+			id: 2,
+			name: "Babolat tennis racket",
+			category: "tennis",
+			description: "Babolat tennis racket",
+			photo:
+				"https://cdn11.bigcommerce.com/s-65f1mln0/images/stencil/600x600/products/3401/16541/20Pure_Aero___77651.1618612938.png?c=2",
+			price: 50,
+		},
+		{
+			id: 3,
+			name: "Wilson Basketball",
+			category: "basketball",
+			description: "",
+			photo:
+				"https://target.scene7.com/is/image/Target/GUEST_20affc7e-e0d7-4eb6-a6f3-68d13520f8be?wid=488&hei=488&fmt=pjpeg",
+			price: 20,
+		},
+		{
+			id: 4,
+			name: "Nike Football Boots",
+			category: "football",
+			description: "",
+			photo: "https://img.fruugo.com/product/0/10/238646100_max.jpg",
+			price: 90,
+		},
+		{
+			id: 5,
+			name: "Swimming Suit",
+			category: "swimming",
+			description: "",
+			photo: "https://www.sportsdirect.com/images/imgzoom/35/35346203_xxl.jpg",
+			price: 30,
+		},
+		{
+			id: 6,
+			name: "Road Bike",
+			category: "cycling",
+			description: "",
+			photo:
+				"https://www.wigglestatic.com/product-media/100375136/Brand-X-Road-Bike-Road-Bikes-Black-2017-BRNDXROADXL-0.jpg",
+			price: 200,
+		},
+		{
+			id: 7,
+			name: "Everlast Boxing Gloves",
+			category: "boxing",
+			description: "",
+			photo: "https://www.sportsdirect.com/images/imgzoom/76/76233103_xxl.jpg",
+			price: 55,
+		},
+	];
+
+	return (
+		<div>
+			<BrowserRouter>
+				<Nav
+					userLogged={userLogged}
+					setUserLogged={setUserLogged}
+					cart={cart}
+				/>
+				<div className="container main-container">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/about-us" element={<AboutUs />} />
+						<Route
+							path="/login"
+							element={
+								<Login userLogged={userLogged} setUserLogged={setUserLogged} />
+							}
+						/>
+						<Route
+							path="/signup"
+							element={
+								<SignUp userLogged={userLogged} setUserLogged={setUserLogged} />
+							}
+						/>
+						<Route
+							path="/profile/:username"
+							element={
+								<Profile
+									userLogged={userLogged}
+									setUserLogged={setUserLogged}
+								/>
+							}
+						/>
+						<Route path="/categories" element={<Categories />} />
+						<Route
+							path="/categories/:category"
+							element={
+								<Profile
+									userLogged={userLogged}
+									setUserLogged={setUserLogged}
+								/>
+							}
+						/>
+
+						<Route
+							path="/search"
+							element={
+								<Search
+									userLogged={userLogged}
+									setUserLogged={setUserLogged}
+									productList={productList}
+								/>
+							}
+						/>
+						<Route
+							path="/product/:productId"
+							element={
+								<Product
+									userLogged={userLogged}
+									setUserLogged={setUserLogged}
+									productList={productList}
+									addToCart={addToCart}
+									addToWishlist={addToWishlist}
+								/>
+							}
+						/>
+						<Route
+							path="/cart"
+							element={
+								<Cart userLogged={userLogged} cart={cart} setCart={setCart} />
+							}
+						/>
+						<Route
+							path="/profile/:username/change-personal-info"
+							element={
+								<ChangePersonalInfo
+									userLogged={userLogged}
+									setUserLogged={setUserLogged}
+								/>
+							}
+						/>
+						<Route
 							path="/wishlist"
 							element={<Wishlist userLogged={userLogged} wishlist={wishlist} setWishlist={setWishlist} />} />
-						<Route 
+						<Route
 							path="/purchaseFinish"
 							element={
 								<PurchaseForm
@@ -254,11 +275,11 @@ function App() {
 								/>
 							}
 						/>
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
-  );
+					</Routes>
+				</div>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
