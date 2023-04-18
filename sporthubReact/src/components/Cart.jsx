@@ -2,11 +2,18 @@ import { useNavigate } from "react-router-dom";
 import "../assets/styles/cart.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useEffect } from "react";
 
 const MySwal = withReactContent(Swal);
 
 export default function Cart({ userLogged, cart, setCart }) {
   const navigate = useNavigate();
+
+	useEffect(() => {
+		if(userLogged == null){
+			navigate("/");
+		}
+	}, []);
 
   const removeOneFromCart = (productId) => {
     if (userLogged) {

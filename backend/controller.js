@@ -233,6 +233,52 @@ app.post("/newProduct", (req, res) => {
   });
 });
 
+/**
+ * API WISHLIST
+ */
+
+app.post("/addToWishlist", (req, res) => {
+	const { username, productId } = req.body;
+  const sql = "INSERT INTO wishlist(user, product) VALUES ((SELECT id FROM users WHERE username = ?),?)";
+	
+	db.run(sql, [username,productId], (err) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.post("/removeFromWishlist", (req, res) => {
+	const { username, productId } = req.body;
+  const sql = "DELETE FROM wishlist WHERE user = (SELECT id FROM users WHERE username = ?) and product = ?";
+	
+	db.run(sql, [username,productId], (err) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.post("/getWishlist", (req, res) => {
+	const { username } = req.body;
+	const sql = "SELECT product FROM wishlist WHERE user = (SELECT id FROM users WHERE username = ?)";
+
+	db.all(sql, [username], (err, rows) => {
+		if(err){
+			console.log(err.message);
+			res.status(500).send("Internal Server ERROR");
+		}else{
+			res.status(200).send(rows);
+		}
+	});
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
