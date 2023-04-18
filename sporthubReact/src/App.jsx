@@ -233,6 +233,7 @@ function App() {
                   setUserLogged={setUserLogged}
                   productList={productList}
                   addToCart={addToCart}
+                  addToWishlist={addToWishlist}
                 />
               }
             />

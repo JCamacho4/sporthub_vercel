@@ -1,6 +1,7 @@
 import "../assets/styles/cart.css"
 
 export default function Wishlist({ userLogged, wishlist, setWishlist }) {
+
 	const removeOneFromWishlist = (productId) => {
 		if (userLogged) {
 			const newWishlist = [...wishlist];
@@ -43,6 +44,7 @@ export default function Wishlist({ userLogged, wishlist, setWishlist }) {
 
 	return (
 		<div>
+			{console.log(wishlist)}
 			<h1>WishList</h1>
 			<br />
 			{wishlist.length === 0 ? (

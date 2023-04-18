@@ -17,7 +17,7 @@ export default function SignUp({ userLogged, setUserLogged }) {
 
     const [dia, mes, anio] = dateInput.split("/");
     if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900 || anio > 2023) {
-      alert("La fecha debe seguir el formato dd/mm/yyyy");
+      alert("La fecha debe seguir el formato dd/mm/yyyy y ser válida.");
     } else {
       let dateSend = (anio + "-" + mes + "-" + dia);
       axios
