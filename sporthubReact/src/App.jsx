@@ -13,10 +13,6 @@ import Search from "./components/Search";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import ChangePersonalInfo from "./components/ChangePersonalInfo";
-import AddressSelection from "./components/purchaseProcess/AddressSelection";
-import ShipmentSelection from "./components/purchaseProcess/ShipmentSelection";
-import PaymentSelection from "./components/purchaseProcess/PaymentSelection";
-import PurchaseSummary from "./components/purchaseProcess/PurchaseSummary";
 import PurchaseForm from "./components/PurchaseForm";
 import Wishlist from "./components/Wishlist.jsx";
 
@@ -68,20 +64,13 @@ function App() {
 //				userId: userLogged.id,
 //				productId: product.id,
 //			});
-			const updatedWishlist = wishlist.map((item) => {
-				if (item.prod.id === product.id) {
-					return { ...item, quantity: item.quantity + 1 };
-				}
-				return item;
-			});
 			
-			if (!updatedWishlist.some((item) => item.prod.id === product.id)) {
-				updatedWishlist.push({ prod: product, quantity: 1 });
+			if (!wishlist.some((item) => item.id === product.id)) {
+				wishlist.push(product);
 				console.log("Product added to wishlist: " + product.name);
 			}
 			
-			console.log(updatedWishlist);
-			setWishlist(updatedWishlist);
+			setWishlist(wishlist);
 		}
 	};
 

@@ -49,14 +49,14 @@ export default function Nav({ userLogged, setUserLogged, cart }) {
             </button>
             
             <ul className="dropdown-menu menuUser">
-              <li> <a className="dropdown-item" href={`/profile/${userLogged.username}`}>Profile</a> </li>
-              <li> <a className="dropdown-item" href="/wishlist/">Wish list</a> </li>
-              <li> <a className="dropdown-item" href="#"
+              <li> <Link className="dropdown-item" to={`/profile/${userLogged.username}`}>Profile</Link> </li>
+              <li> <Link className="dropdown-item" to="/wishlist/">Wish list</Link> </li>
+              <li> <Link className="dropdown-item" to="#"
                 onClick={() => {
                   setUserLogged(null);
                   localStorage.removeItem("user");
                   history.push("/");
-                }}>Log out</a>
+                }}>Log out</Link>
               </li>
             </ul>
           </div>
