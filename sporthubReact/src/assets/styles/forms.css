@@ -53,27 +53,27 @@ h2{
     pointer-events: none;
     transition: 1s; 
     text-align: left;
-    color: #be982f;
+    color: transparent;
 }
 
 input#username:focus ~ label{
     left: 200px;
-    color: #b7b7b7;
+    color: black;
 }
 
 input#password:focus ~ label{
     left: 205px;
-    color: #b7b7b7;
+    color: black;
 }
 
 input#email:focus ~ label{
     left: 235px;
-    color: #b7b7b7;
+    color: black;
 }
 
 input#name:focus ~ label{
     left: 230px;
-    color: #b7b7b7;
+    color: black;
 }
 
 .formInputbox input{
@@ -111,7 +111,8 @@ button#button{
 }
 
 button#button:hover{
-	background-color: #ffa600ad;
+	background-color: black;
+    color: #ffa500;
 }
 
 .register{

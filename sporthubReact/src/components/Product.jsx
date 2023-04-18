@@ -25,7 +25,10 @@ export default function Product(props) {
 				<h1>{product.name}</h1>
 				<img style={{ maxWidth: '30%', height: 'auto' }} src={product.photo} alt="photo" />
 				<p>{product.description}</p>
-				<button className="btn btn-primary" onClick={() => props.addToCart(product)}>Add to cart</button>
+				<div className="container" id="buttons">
+					<button id="cart" className="btn btn-primary" onClick={() => props.addToCart(product)}>Add to cart</button>
+					<button id="wishlist" className="btn btn-primary" onClick={() => props.addToWishlist(product)}>Add to wishlist</button>
+				</div>
 			</div>
 		) : null
 	);

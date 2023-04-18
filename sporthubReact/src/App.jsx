@@ -13,10 +13,12 @@ import Search from "./components/Search";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import ChangePersonalInfo from "./components/ChangePersonalInfo";
+import Wishlist from "./components/Wishlist.jsx";
 
 function App() {
 	const [userLogged, setUserLogged] = useState(null);
 	const [cart, setCart] = useState([]);
+	const [wishlist, setWishlist] = useState([]);
 
 	useEffect(() => {
 		if (localStorage.getItem("user")) {
@@ -53,6 +55,29 @@ function App() {
 			
 			console.log(updatedCart);
 			setCart(updatedCart);
+		}
+	};
+
+	const addToWishlist = (product) => {
+		if (userLogged) {
+//		axios.post("http://localhost:8080/addToWishlist", {
+//				userId: userLogged.id,
+//				productId: product.id,
+//			});
+			const updatedWishlist = wishlist.map((item) => {
+				if (item.prod.id === product.id) {
+					return { ...item, quantity: item.quantity + 1 };
+				}
+				return item;
+			});
+			
+			if (!updatedWishlist.some((item) => item.prod.id === product.id)) {
+				updatedWishlist.push({ prod: product, quantity: 1 });
+				console.log("Product added to wishlist: " + product.name);
+			}
+			
+			console.log(updatedWishlist);
+			setWishlist(updatedWishlist);
 		}
 	};
 
@@ -152,6 +177,9 @@ function App() {
 						<Route
 							path="/profile/:username/change-personal-info"
 							element={<ChangePersonalInfo userLogged={userLogged} setUserLogged={setUserLogged} />} />
+						<Route 
+							path="/wishlist"
+							element={<Wishlist userLogged={userLogged} wishlist={wishlist} setWishlist={setWishlist} />} />
 							
 					</Routes>
 				</div>

@@ -28,8 +28,9 @@
 }
 
 .button2:hover {
-	background-color: #ffa600ad;
+	background-color: black;
 	transition: 0.2s;
+  color: #ffa500;
 }
 
 #menuBtn {
