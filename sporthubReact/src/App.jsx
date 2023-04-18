@@ -90,7 +90,7 @@ function App() {
       category: "track",
       description: "Unused running shoes",
       photo:
-        "https://www.brooksrunning.com/dw/image/v2/BGPF_PRD/on/demandware.static/-/Sites-brooks-master-catalog/default/dw13a6b6c1/original/110366/110366-435-l-adrenaline-gts-22-mens-cushion-running-shoe.jpg?sw=1388&sh=868&sm=cut&sfrm=png&bgcolor=F1F3F6",
+        "https://www.brooksrunning.com/dw/image/v2/BGPF_PRD/on/demandware.static/-/Sites-brooks-master-catalog/default/dw19820951/original/110393/110393-407-l-ghost-15-mens-neutral-cushion-running-shoe.png?sw=425&sh=425&sm=fit",
       price: 50,
     },
     {

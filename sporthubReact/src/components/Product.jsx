@@ -58,19 +58,24 @@ export default function Product(props) {
 
   return product !== undefined ? (
     <div className="product-div">
-      <h1>{product.name}</h1>
-      <img
-        style={{ maxWidth: "30%", height: "auto" }}
-        src={product.photo}
-        alt="photo"
-      />
-      <p>{product.description}</p>
-      <button
-        className="btn btn-primary"
-        onClick={checkLogged}
-      >
-        Add to cart
-      </button>
+      <div style={{flex: "1", width: "300px"}}>
+        <img
+          style={{ maxWidth: "90%", height: "auto" }}
+          src={product.photo}
+          alt="photo"
+        />
+      </div>
+      <div>
+        <h2>{product.name}</h2>
+        <p>{product.description}</p>
+        <p>Price: {product.price}€</p>
+        <button
+          className="btn btn-primary"
+          onClick={checkLogged}
+        >
+          Add to cart
+        </button>
+      </div>
     </div>
   ) : null;
 }

@@ -13,7 +13,19 @@ export default function Cart({ userLogged, cart, setCart }) {
       const newCart = [...cart];
       newCart.map((item) => {
         if (item.prod.id === productId) {
-          item.quantity--;
+          if(item.quantity==1){
+            MySwal.fire({
+              title: "Confirmation needed",
+              text: "Do you really want to remove the product from the cart?",
+              icon: "info",
+              showCancelButton: true,
+              confirmButtonText: "Confirm",
+              confirmButtonColor: "#ffa500",
+              denyButtonText: "Deny",
+            }).then((result) => handleClick(result, productId));
+          }else{
+            item.quantity--;
+          }
         }
       });
       setCart(newCart.filter((item) => item.quantity != 0));
