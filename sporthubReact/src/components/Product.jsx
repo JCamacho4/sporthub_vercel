@@ -68,13 +68,16 @@ export default function Product(props) {
       <div>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
-        <p>Price: {product.price}€</p>
-        <button
+				<div className="container" id="buttons">
+	        <p>Price: {product.price}€</p>
+        <button id="cart"
           className="btn btn-primary"
           onClick={checkLogged}
         >
           Add to cart
         </button>
+					<button id="wishlist" className="btn btn-primary" onClick={() => props.addToWishlist(product)}>Add to wishlist</button>
+				</div>
       </div>
     </div>
   ) : null;

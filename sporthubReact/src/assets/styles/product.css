@@ -4,6 +4,26 @@
     text-align: center;
   }
 
+#buttons button{
+  margin: 0.2cm;
+  background-color: #ffa500;
+  border: none;
+  color: black;
+}
+
+button#wishlist:hover{
+  background-color: black;
+  border: none;
+  color: #ffa500;
+}
+
+button#cart:hover{
+  background-color: black;
+  border: none;
+  color: #ffa500;
+}
+
+
 .boton-producto{
     background-color: #ffa500;
     border: none;
