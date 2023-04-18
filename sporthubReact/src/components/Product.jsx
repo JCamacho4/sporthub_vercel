@@ -34,9 +34,9 @@ export default function Product(props) {
     }
   };
 
-  const checkLogged = () =>{
+  const checkLogged = () => {
     console.log(userLogged);
-    if(userLogged){
+    if (userLogged) {
       MySwal.fire({
         title: "Confirmation needed",
         text: "Please confirm to add the product to the cart",
@@ -46,19 +46,30 @@ export default function Product(props) {
         confirmButtonColor: "#ffa500",
         denyButtonText: "Deny",
       }).then(handleClick);
-    }else{
+    } else {
       MySwal.fire({
         title: "You Need to LogIn",
         text: "In order to add the product to the cart you should LogIn with your account.",
         icon: "warning",
         confirmButtonColor: "#ffa500",
-      })
+      });
     }
-  }
+  };
+
+  const notifyWishList = () => {
+    MySwal.fire({
+      title: "Success",
+      text: "The product has been added to the wish list",
+      icon: "success",
+      confirmButtonColor: "#ffa500",
+    }).then(() => {
+      props.addToWishlist(product);
+    });
+  };
 
   return product !== undefined ? (
     <div className="product-div">
-      <div style={{flex: "1", width: "300px"}}>
+      <div style={{ flex: "1", width: "300px" }}>
         <img
           style={{ maxWidth: "90%", height: "auto" }}
           src={product.photo}
@@ -68,16 +79,19 @@ export default function Product(props) {
       <div>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
-				<div className="container" id="buttons">
-	        <p>Price: {product.price}€</p>
-        <button id="cart"
-          className="btn btn-primary"
-          onClick={checkLogged}
-        >
-          Add to cart
-        </button>
-					<button id="wishlist" className="btn btn-primary" onClick={() => props.addToWishlist(product)}>Add to wishlist</button>
-				</div>
+        <div className="container" id="buttons">
+          <p>Price: {product.price}€</p>
+          <button id="cart" className="btn btn-primary" onClick={checkLogged}>
+            Add to cart
+          </button>
+          <button
+            id="wishlist"
+            className="btn btn-primary"
+            onClick={notifyWishList}
+          >
+            Add to wishlist
+          </button>
+        </div>
       </div>
     </div>
   ) : null;

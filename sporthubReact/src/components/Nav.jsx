@@ -25,8 +25,6 @@ export default function Nav({ userLogged, setUserLogged, cart }) {
             <button className="button2">Sign Up</button>
           </Link>
         </li>
-
-
       </>
     );
   };
@@ -42,21 +40,46 @@ export default function Nav({ userLogged, setUserLogged, cart }) {
         </li>
         <li className="nav-item item-user-profile">
           <div className="dropdown dropdownUser" id="profile-dropdown">
-            <button type="button" className="button-profile" id="menuBtn" data-bs-toggle="dropdown">
+            <button
+              type="button"
+              className="button-profile"
+              id="menuBtn"
+              data-bs-toggle="dropdown"
+            >
               <ion-icon name="person-circle-outline" id="icono"></ion-icon>
               {"   " + userLogged.username + "   "}
               <ion-icon name="chevron-forward-outline" id="icono2"></ion-icon>
             </button>
-            
+
             <ul className="dropdown-menu menuUser">
-              <li> <Link className="dropdown-item" to={`/profile/${userLogged.username}`}>Profile</Link> </li>
-              <li> <Link className="dropdown-item" to="/wishlist/">Wish list</Link> </li>
-              <li> <Link className="dropdown-item" to="#"
-                onClick={() => {
-                  setUserLogged(null);
-                  localStorage.removeItem("user");
-                  history.push("/");
-                }}>Log out</Link>
+              <li>
+                {" "}
+                <Link
+                  className="dropdown-item"
+                  to={`/profile/${userLogged.username}`}
+                >
+                  Profile
+                </Link>{" "}
+              </li>
+              <li>
+                {" "}
+                <Link className="dropdown-item" to="/wishlist/">
+                  Wish list
+                </Link>{" "}
+              </li>
+              <li>
+                {" "}
+                <Link
+                  className="dropdown-item"
+                  to="#"
+                  onClick={() => {
+                    setUserLogged(null);
+                    localStorage.removeItem("user");
+                    history.push("/");
+                  }}
+                >
+                  Log out
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,12 +92,14 @@ export default function Nav({ userLogged, setUserLogged, cart }) {
     <div>
       <nav className="navbar navbar-expand-lg p-0 fixed-top top-nav">
         <div className="container-fluid">
-          <div className="navbar-brand item-brand" href="#">
-            <img
-              width="200"
-              alt="Logo"
-              src="https://user-images.githubusercontent.com/100539990/221368717-a32486ad-8628-4658-8354-b97b5eaa3a43.png"
-            />
+          <div className="navbar-brand item-brand">
+            <a href="/">
+              <img
+                width="200"
+                alt="Logo"
+                src="https://user-images.githubusercontent.com/100539990/221368717-a32486ad-8628-4658-8354-b97b5eaa3a43.png"
+              />
+            </a>
           </div>
 
           <button
