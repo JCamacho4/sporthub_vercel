@@ -1,10 +1,18 @@
-.addButton, .removeButton {
+.addButton, .removeButton, .removeAllButton {
 	background: #ffa500;
-	border-radius: 20px;
 	outline: none;
 	border: none;
 	color: #000;
 	font-weight: 600;
+	font-size: 1.62em;
+	line-height: 5px;
+	border-radius: 30px;
+	height: 40px;
+	width: 40px;
+}
+
+.removeAllButton {
+	background: red;
 }
 
 .addButton:hover, .removeButton:hover {
@@ -13,4 +21,22 @@
 
 .totalCard {
 	background: #ffa500;
+}
+
+.finishButton {
+	width: 25%;
+	padding: 10px;
+	border-radius: 20px;
+	border: none;
+	background: #ffa500;
+	color: #000;
+	font-weight: 600;
+}
+
+.finishButton:hover {
+	background: #ffc251;
+}
+
+.cartContainer {
+	text-align: center;
 }

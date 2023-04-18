@@ -1,0 +1,21 @@
+.purchaseButton {
+	width: 150px;
+	padding: 10px;
+	border-radius: 20px;
+	outline: none;
+	border: none;
+	transform: translateX(20px);
+	background: #ffa500;
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.disabledPurchaseButton {
+	background-color: grey;
+}
+
+.longButton {
+	width: 225px;
+}

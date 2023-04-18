@@ -6,6 +6,10 @@ export default function Home() {
 		<div className="imagesSearch homeImagesSearch">
 			<div className="container-fluid mt-3 mb-3">
 
+				<h1>Your reliable sports shop</h1>
+
+				<SearchBar lastQuery={""} lastCategory={"all"} />
+
 				<div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
 					<div className="carousel-inner" id="imagesContainer">
 						<div className="carousel-item homeCarouselItem active">
@@ -21,9 +25,6 @@ export default function Home() {
 
 				</div>
 			</div>
-
-			<SearchBar lastQuery={""} lastCategory={"all"} />
-
 		</div>
 	);
 }
