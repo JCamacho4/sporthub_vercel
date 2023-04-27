@@ -13,7 +13,7 @@ require("dotenv").config();
 app.use(cors());
 const upload = multer({ dest: "uploads/" });
 
-TOKEN_KEY: 'X7&DJ&3niDw6!JF'
+const TOKEN_KEY: 'X7&DJ&3niDw6!JF'
 
 const db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
