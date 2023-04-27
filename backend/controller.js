@@ -13,6 +13,8 @@ require("dotenv").config();
 app.use(cors());
 const upload = multer({ dest: "uploads/" });
 
+TOKEN_KEY: 'X7&DJ&3niDw6!JF'
+
 const db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
     return console.error(err.message);
@@ -79,7 +81,7 @@ app.post("/newUser", (req, res) => {
                 console.error(err.message);
                 res.status(500).send("Internal server error");
               } else {
-                token = jwt.sign({ username: username }, process.env.TOKEN_KEY);
+                token = jwt.sign({ username: username }, TOKEN_KEY);
                 res.status(200).send(token);
               }
             });
@@ -106,7 +108,7 @@ app.post("/login", (req, res) => {
             res.status(500).send("Internal server error");
           } else {
             if (result) {
-              token = jwt.sign({ username: username }, process.env.TOKEN_KEY);
+              token = jwt.sign({ username: username }, TOKEN_KEY);
               res.status(200).send(token);
             } else {
               res.status(403).send("Password not valid");
@@ -125,7 +127,7 @@ app.post("/userByToken", (req, res) => {
   try {
     const { token } = req.body;
     if (token) {
-      const user = jwt.verify(token, process.env.TOKEN_KEY);
+      const user = jwt.verify(token, TOKEN_KEY);
       res.status(200).send(user);
     } else {
       res.status(100).send("No token");
@@ -181,7 +183,7 @@ app.post("/updateUser", (req, res) => {
                       console.error(err.message);
                       res.status(500).send("Internal server error");
                     } else {
-                      token = jwt.sign({ username: username }, process.env.TOKEN_KEY);
+                      token = jwt.sign({ username: username }, TOKEN_KEY);
                       res.status(200).send(token);
                     }
                   });
